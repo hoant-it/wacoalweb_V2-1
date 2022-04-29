@@ -1,0 +1,155 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <% include ../block/head %>
+            <link rel="stylesheet" type="text/css" href="/cdn3.devexpress.com/jslib/20.2.5/css/dx.common.css" />
+            <link rel="stylesheet" type="text/css" href="/cdn3.devexpress.com/jslib/20.2.5/css/dx.light.css" />
+            <link rel="stylesheet" type="text/css" href="/css/admin/menuPermission.css" />
+</head>
+<!-- <body class="dx-viewport"> -->
+
+<body class="nav-md footer_fixed">
+
+    <div class="container body">
+        <div class="main_container">
+            <% include ../block/leftpanelV2 %>
+                <% include ../block/toppanelV2 %>
+
+                    <form role="form" id="formRule">
+                        <!-- page content -->
+                        <div class="right_col " role="main" style="min-height: 100vh">
+                            <div class="page-title">
+                                <div class="title_left">
+                                    <h3> <small><strong></strong></small></h3>
+                                </div>
+                            </div>
+                            <div class="clearfix"></div>
+                            <div class="row">
+                                <div class="col-md-12 col-sm-12">
+                                    <div class="x_panel">
+                                        <div class="x_title">
+                                            <h2>Rule Choice</h2>
+                                            <ul class="nav navbar-right panel_toolbox">
+                                                <li><a class="collapse-link"><i class="fa fa-chevron-up"></i></a> </li>
+                                            </ul>
+                                            <div class="clearfix"></div>
+                                        </div>
+                                        <div class="form-group row">
+                                            <div class="col-md-2 col-sm-2 ">
+
+                                                <select class="form-control" id="selectRuleId">
+                                                    <option value="none"> </option>
+                                                    <% if( arrPermisionGroupCode ){ %>
+                                                        <% for ( var i=0 ; i < arrPermisionGroupCode.length ; i ++) { %>
+                                                            <option value="<%-arrPermisionGroupCode[i].PermisionGroupCode %>"><%=arrPermisionGroupCode[i].PermisionGroupDescription %></option>
+                                                            <% } %>
+                                                                <% } %>
+                                                </select>
+                                            </div>
+                                            <button type="button" class="btn btn-success" value="" id="btnNewRule"> New Rule</button>
+                                            <button type="button" class="btn btn-info" value="" id="btnEditRule">Edit Rule</button>
+                                            <button type="submit" name="bsubmit" value="submitDeleteRule" class="btn btn-danger" id="btnDeleteRule">Delete</button>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+
+                            <div class="row">
+                                <div class="col-md-6 col-sm-6">
+                                    <div class="x_panel">
+                                        <div class="x_title">
+                                            <h2>Menu Permission  List</h2>
+                                            <ul class="nav navbar-right panel_toolbox">
+                                                <li><a class="collapse-link"><i class="fa fa-chevron-up"></i></a> </li>
+                                            </ul>
+                                            <div class="clearfix"></div>
+                                        </div>
+
+                                        <div class="x_content" id="xcontentid">
+                                            <div id="tree-list"></div>
+
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="col-md-6 col-sm-6">
+                                    <div class="x_panel">
+                                        <div class="x_title">
+                                            <h2>Menu List</h2>
+                                            <ul class="nav navbar-right panel_toolbox">
+                                                <li><a class="collapse-link"><i class="fa fa-chevron-up"></i></a> </li>
+                                            </ul>
+                                            <div class="clearfix"></div>
+                                        </div>
+
+                                        <div class="x_content" id="xcontentid">
+                                            <div id="grid"></div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+
+                            <!-- Modal -->
+                            <div class="modal fade" id="modalAddUpdate" role="dialog">
+                                <div class="modal-dialog">
+
+                                    <!-- Modal content-->
+                                    <div class="modal-content">
+                                        <div class="modal-header">
+                                            <button type="button" class="close" data-dismiss="modal">&times;</button>
+                                            <h4 class="modal-title">Add/Update Rule</h4>
+                                        </div>
+                                        <div class="modal-body">
+
+                                            <div class="form-group">
+                                                <label for="txtRuleCode">Rule Code</label>
+                                                <input type="text" class="form-control" name="txtRuleCode" id="txtRuleCode">
+                                                <!-- <input type="hidden" id="hidID" value="0" /> -->
+                                            </div>
+                                            <div class="form-group">
+                                                <label for="txtRuleName">Rule Name</label>
+                                                <input type="text" class="form-control" name="txtRuleName" id="txtRuleName">
+                                            </div>
+                                            <div class="modal-footer">
+                                                <button type="submit" name="submitInsert" value="submitInsert" class="btn btn-primary" id="btnSave">Save</button>
+                                                <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                            <!-- modal -->
+                        </div>
+                        <!-- /page content -->
+
+                        <!-- footer content -->
+                        <footer>
+                            <div class="nav_menu">
+                                <nav class="nav navbar-nav">
+                                    <ul class=" navbar-right">
+                                        <li style="padding-right: 15px; float: right; margin-top: 20px;">
+                                            <button type="submit" class="btn btn-success" value="submitMoveInside" id="btnMoveInside"> Move Inside</button>
+                                            <button type="submit" class="btn btn-info" value="submitMoveOutSide" id="btnMoveOutSide">Move Outside</button>
+                                            <button type="submit" name="bsubmit" value="submitDelete" class="btn btn-danger" id="btnDeleteId">Delete</button>
+                                            <!-- <button type="submit" name="bsubmit" value="submitSave" class="btn btn-primary" id="btnSaveId">Save</button>
+                                        <button type="button" onclick="cancelUser()" name="bsubmit" value="submitCancel" class="btn btn-secondary" id="btnCancelId">Cancel</button> -->
+                                        </li>
+                                    </ul>
+                                </nav>
+                            </div>
+                        </footer>
+                        <!-- /footer content -->
+        </div>
+    </div>
+    <% include ../block/script %>
+    <!-- <script>
+        window.jQuery || document.write(decodeURIComponent('%3Cscript src="js/jquery.min.js"%3E%3C/script%3E'))
+    </script>
+       <script src="/cdn3.devexpress.com/jslib/20.2.5/js/dx.all.js"></script>
+       <script src="/unpkg.com/devextreme-aspnet-data@2.7.1/js/dx.aspnet.data.js"></script> -->
+       <script src="/javascripts/admin/menuPermissionjs.js"></script>
+    </form>
+ 
+</body>
+
+
+</html>

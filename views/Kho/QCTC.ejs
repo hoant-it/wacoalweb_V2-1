@@ -1,0 +1,285 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <% include ../block/head %>
+    <link rel="stylesheet" href="/css/dataTables.bootstrap4.min.css">
+    <link rel="stylesheet" href="/css/jquery.dataTables.min.css">
+    <link rel="stylesheet" href="/css/kho/QCTC.css">
+</head>
+
+<body class="nav-md footer_fixed">
+
+    
+        <div class="container body">
+            <div class="main_container">
+                <% include ../block/leftpanelV2 %>
+                    <% include ../block/toppanelV2 %>
+                    <form action="/home/kho/QCTC" method="POST">
+                        <!-- page content -->
+                        <div class="right_col " role="main" style="min-height: 100vh">
+                            <div class="">
+                                <div class="page-title">
+                                    <div class="title_left">
+                                        <h3>Tính chỉ theo Order <small><strong></strong></small></h3>
+
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="row">
+                                <div class="col-md-12 ">
+                                    <div class="x_panel">
+                                        <div class="x_title">
+                                            <h2>Order Search <small></small></h2>
+                                            <ul class="nav navbar-right panel_toolbox">
+                                                <li><a class="collapse-link"><i class="fa fa-chevron-up"></i></a>
+                                                </li>
+                                            </ul>
+                                            <div class="clearfix"></div>
+                                        </div>
+                                        <div class="x_content">
+                                            <br>
+
+                                            <!-- <div class="form-inline">
+                                                <div class="form-group">
+                                                  <label for="ex3" class="col-form-label">Email address</label>
+                                                  <input type="text" id="ex3" class="form-control" placeholder=" ">
+                                                </div>
+                                                <div class="form-group">
+                                                    <label for="ex3" class="col-form-label"> <span class="required"> &nbsp &nbsp </span> </label>
+                                                  </div>
+                                                <div class="form-group">
+                                                  <label for="ex4" class="col-form-label">Email address</label>
+                                                  <input type="email" id="ex4" class="form-control" placeholder=" ">
+                                                </div>
+                                                <div class="form-check">
+                                                  <label>
+                                                    <input type="checkbox"> Remember me
+                                                  </label>
+                                                </div>
+                                                <button type="submit" class="btn btn-secondary">Send invitation</button>
+                                              </div> -->
+
+                                                <label class="col-form-label col-md-1 col-sm-1 label-align" for="first-name">Năm <span class="required">*</span> </label>
+                                                <div class="col-md-1 col-sm-1 ">
+                                                    <select class="form-control" name="selectNam">
+                                                      <%  if( arrNamSelect) { %>
+                                                          <%  for(var i= 0; i< arrNamSelect.length; i++) { %>
+                                                                  <%  if( arrNamSelect[i].values  === selectNam ) { %>
+                                                                        <option value="<%-arrNamSelect[i].values %>" selected> <%=arrNamSelect[i].name %> </option>
+                                                                  <%  } else { %>
+                                                                        <option value="<%-arrNamSelect[i].values %>"> <%=arrNamSelect[i].name %> </option>
+                                                                   <% } %>
+                                                          <%  } %>
+                                                      <%  } else { %>
+                                                        <option> </option>
+                                                      <%  } %>
+                                                    </select>
+                                                </div>
+                                                <label class="col-form-label col-md-1 col-sm-1 label-align" for="first-name">Tháng <span class="required">*</span>
+                                                </label>
+                                                <div class="col-md-1 col-sm-1 ">
+                                                    <select class="form-control" name="selectThang">
+                                                     <%   if (arrThangSelect) { %>
+                                                         <%   for ( var i = 0 ; i <arrThangSelect.length; i++) { %>
+                                                              <%  if( arrThangSelect[i].values === _selectThang ) { %>
+                                                                    <option value="<%-arrThangSelect[i].values%>" selected> <%=arrThangSelect[i].name%> </option>
+
+                                                               <% } else { %>
+                                                                    <option value="<%-arrThangSelect[i].values%>"><%=arrThangSelect[i].name%>  </option>
+
+                                                               <% } %>
+                                                         <% } %>
+                                                    <%} else { %>
+                                                        <option value=""> </option>
+                                                       <% }%>
+                                                    </select>
+                                                </div>
+                                                <label class="col-form-label col-md-1 col-sm-1 label-align" for="first-name">Khách Hàng <span class="required">*</span>
+                                                </label>
+                                                <div class="col-md-2 col-sm-2 ">
+                                                    <select class="form-control" name="selectKH">
+                                                        <option value="01"> 01:Wacoal</option>
+                                                    </select>
+                                                </div>
+                                                <!-- hang tren -->
+                                                <label class="col-form-label col-md-1 col-sm-1 label-align" for="first-name">Mã Hàng <span class="required">*</span>
+                                                </label>
+                                                <div class="col-md-1 col-sm-1 ">
+                                                    <select class="form-control selectMH" name="selectMH">
+                                                        <option value="BRB464"> BRB464</option>
+                                                        <option value="BCL118"> BCL118</option>
+                                                        <option value="CAX104"> CAX104</option>
+                                                        <option value="CCA210"> CCA210</option>
+                                                        <option value="CCL229"> CCL229</option>
+                                                    </select>
+                                                </div>
+                                                <div class="col-md-1 col-sm-1 ">
+                                                    <button type="submit" name="bsubmit" value="submitSearch" class="btn btn-primary" id="btnSearchId">Search</button>
+
+                                                </div>
+                                                
+                                                <!-- hang tren -->
+                                            
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="row">
+                                <div class="col-md-12">
+                                    <div class="x_panel">
+                                        <div class="x_title">
+                                            <h2>DM List</h2>
+                                            <ul class="nav navbar-right panel_toolbox">
+                                                <li><a class="collapse-link"><i class="fa fa-chevron-up"></i></a> </li>
+                                            </ul>
+                                            <div class="clearfix"></div>
+                                        </div>
+                                        <div class="x_content" id="xcontentid">
+                                            <table class="table table-striped table-bordered mydatatable" style="width: 100%;">
+                                                <thead>
+                                                    <tr>
+                                                        <th>Status </th>
+                                                        <th>Division</th>
+                                                        <th>Unit</th>
+                                                        <th>Product</th>
+                                                        <th>SizeCup</th>
+                                                        <th>Color</th>
+                                                        <th>Month</th>
+                                                        <th>Year</th>
+                                                        <th>Qty</th>
+                                                        <th>R60</th>
+                                                        <th>WA</th>
+                                                        <th>WB</th>
+                                                        <th>GOMU</th>
+                                                        <th>K60</th>
+                                                        <th>K80</th>
+                                                        <th>NW300</th>
+                                                        <th>S80</th>
+                                                    </tr>
+                            
+                                                </thead>
+                                                <tbody>
+                                                    <% if (arrOrder) { %>
+                                                        <% for( var i=0 ; i < arrOrder.length ; i++) { %>
+                                                            <tr>
+                                                                <td>
+                                                                    <%=arrOrder[i].STATUSCHI %>
+                                                                </td>
+                                                                <td>
+                                                                    <%=arrOrder[i].DIVISIONCODE %> : <%=arrOrder[i].DIVISIONNAME_EN %>
+                                                                </td>
+                                                                <td>
+                                                                    <%=arrOrder[i].UNIT %>
+                                                                </td>
+                                                                <td>
+                                                                    <%=arrOrder[i].PRODUCTCODE %>
+                                                                </td>
+                                                                <td>
+                                                                    <%=arrOrder[i].SIZECODE %>
+                                                                </td>
+                                                                <td>
+                                                                    <%=arrOrder[i].COLORCODE %>
+                                                                </td>
+                                                                <td>
+                                                                    <%=arrOrder[i].ORDERMONTH %>
+                                                                </td>
+                                                                <td>
+                                                                    <%=arrOrder[i].ORDERYEAR %>
+                                                                </td>
+                                                                <td>
+                                                                    <%=arrOrder[i].QTY %>
+                                                                </td>
+                                                                <td>
+                                                                    <%=arrOrder[i].SUMQTY_R60 %>
+                                                                </td>
+                                                                <td>
+                                                                    <%=arrOrder[i].SUMQTY_WA %>
+                                                                </td>
+                                                                <td>
+                                                                    <%=arrOrder[i].SUMQTY_WB %>
+                                                                </td>
+                                                                <td>
+                                                                    <%=arrOrder[i].SUMQTY_GOMU %>
+                                                                </td>
+                                                                <td>
+                                                                    <%=arrOrder[i].SUMQTY_K60 %>
+                                                                </td>
+                                                                <td>
+                                                                    <%=arrOrder[i].SUMQTY_K80 %>
+                                                                </td>
+                                                                <td>
+                                                                    <%=arrOrder[i].SUMQTY_NW300 %>
+                                                                </td>
+                                                                <td>
+                                                                    <%=arrOrder[i].SUMQTY_S80 %>
+                                                                </td>
+
+                                                            </tr>
+                                                            <% } %>
+                                                                <% } else { %>
+                                                                    <tr>
+                                                                        <td> Empty </td>
+                                                                        <td> Empty </td>
+                                                                        <td> Empty </td>
+                                                                        <td> Empty </td>
+                                                                        <td> Empty </td>
+                                                                        <td> Empty </td>
+                                                                        <td> Empty </td>
+                                                                        <td> Empty </td>
+                                                                        <td> Empty </td>
+                                                                        <td> Empty </td>
+                                                                        <td> Empty </td>
+                                                                        <td> Empty </td>
+                                                                        <td> Empty </td>
+                                                                        <td> Empty </td>
+                                                                        <td> Empty </td>
+                                                                        <td> Empty </td>
+                                                                        <td> Empty </td>
+                                                                    </tr>
+                                                                    <% } %>
+                                                </tbody>
+                                                <tfoot>
+                                                    <th colspan="8" class="text-right">Total</th>
+                                                    <th ></th>
+                                                    <th ></th>
+                                                    <th ></th>
+                                                    <th ></th>
+                                                    <th ></th>
+                                                    <th ></th>
+                                                    <th ></th>
+                                                    <th ></th>
+                                                    <th ></th>
+                                                </tfoot>
+                            
+                                            </table>
+                            
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+
+                        </div>
+                        <!-- /page content -->
+
+                        <!-- footer content -->
+                        <footer>
+                            <div class="pull-right">
+                                Wacoal - Bootstrap Admin Template by <a href="/home">Thai Hoa</a>
+                            </div>
+                            <div class="clearfix"></div>
+                        </footer>
+                        <!-- /footer content -->
+            </div>
+        </div>
+        <% include ../block/script %>
+        <script src="/js/jquery-3.5.1.min.js"> </script>
+        <script src="/js/popper.min.js"></script>
+        <script src="/js/bootstrap.min.js"></script>
+        <script src="/js/jquery.dataTables.min.js"></script>
+        <script src="/js/dataTables.bootstrap4.min.js"></script>
+        <script src="/javascripts/kho/QTTC.js"></script>
+    </form>
+</body>
+
+</html>

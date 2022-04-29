@@ -1,0 +1,125 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <% include ../block/head %>
+    <link rel="stylesheet" type="text/css" href="/cdn3.devexpress.com/jslib/20.2.5/css/dx.common.css" />
+    <link rel="stylesheet" type="text/css" href="/cdn3.devexpress.com/jslib/20.2.5/css/dx.light.css" />
+    <link rel="stylesheet" href="/css/video/uploadprocessbar.css">
+    <link rel="stylesheet" href="/css/video/videolist.css">
+</head>
+
+<body class="nav-md footer_fixed">
+  
+    <div class="container body">
+        <div class="main_container">
+            <% include ../block/leftpanelV2 %>
+                <% include ../block/toppanelV2 %>
+               
+                    <!-- page content -->
+                    <div class="right_col " role="main" style="min-height: 100vh">
+                            <div class="page-title">
+                                <div class="title_left">
+                                    <h3> <small><strong></strong></small></h3>
+                                </div>
+                            </div>
+                            <div class="clearfix"></div>
+                            <div class="row">
+                                <div class="col-md-12">
+                                    <div class="x_panel">
+                                        <div class="x_title">
+                                            <h2>Danh Sách Video</h2>
+                                            <ul class="nav navbar-right panel_toolbox">
+                                                <li><a class="collapse-link"><i class="fa fa-chevron-up"></i></a> </li>
+                                            </ul>
+                                            <div class="clearfix"></div>
+                                        </div>
+                                        <div class="x_content" id="xcontentid">
+                                            <div class="row">
+                                                <div class="col-md-4" >
+                                                    
+                                                        <div class="wrapper">
+                                                            <header>Tải File Video</header>
+                                                            <form action="#" id="frmUpload">
+                                                                <input type="file" class="file-input" name="file" id="txtFileInput" hidden>
+                                                                <i class="fas fa-cloud-upload-alt"></i>
+                                                                <p>Chọn File Tải</p>
+                                                            </form>
+                                                            <section class="process-area">
+                                                            </section>
+                                                            <section class="uploaded-area">
+                                                            </section>
+                                                        </div>
+
+                                                  
+                                                </div>
+                                                <div class="col-md-8">
+                                                    <div id="VideoGrid"></div>
+                                                </div>
+                                            </div>
+                                                
+                            
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                            <div id="tooltipUpload">Tãi video lên</div>
+                            <div id="tooltipEdit">Chỉnh sửa video</div>
+                            <div id="tooltipDelete">Xóa video </div>
+                            <div id="tooltipPlay">Xem video </div>
+                            <div id="tooltipQRGenerate">Tạo QRCode video </div>
+
+                
+                    </div>
+                      <!-- Modal -->
+                      <div class="modal fade" id="modalAddUpdate" role="dialog">
+                        <div class="modal-dialog modal-lg">
+
+                            <!-- Modal content-->
+                            <div class="modal-content">
+                                <div class="modal-header">
+                                    <!-- <button type="button" class="close" data-dismiss="modal">&times;</button> -->
+                                    <h4 class="modal-title">Cập Nhật Tên Video</h4>
+                                </div>
+                                <div class="modal-body">
+                                    <div class="form-group row">
+                                        <label class="col-form-label col-md-3 col-sm-3 " for="txtTenVideo" >Tên Video</label>
+                                        <div class="col-md-9 col-sm-9 ">
+                                          <input type="text" class="form-control"  name="txtTenVideo" id="txtTenVideo">
+                                        </div>
+                                      </div>
+                        
+                                    <div class="modal-footer">
+                                        <button type="button" name="submitInsert" value="submitInsert" class="btn btn-primary" id="btnSave">Save</button>
+                                        <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+                                    </div>
+                                    <!-- <div class="checkbox">
+                                    <label><input type="checkbox" id="ckStatus">Active</label>
+                                    </div> -->
+
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <!-- modal -->
+               
+                    <!-- /page content -->
+
+                    <!-- footer content -->
+                    <footer>
+                        <div class="pull-right">
+                            Wacoal - Bootstrap Admin Template by <a href="/home">Thai Hoa</a>
+                        </div>
+                        <div class="clearfix"></div>
+                    </footer>
+                    <!-- /footer content -->
+                
+        </div>
+    </div>
+    
+    <% include ../block/script %>
+    <script src="/javascripts/video/videoList.js"></script>
+ 
+</body>
+
+</html>

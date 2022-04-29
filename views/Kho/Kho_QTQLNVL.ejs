@@ -1,0 +1,108 @@
+<!DOCTYPE html>
+<html lang="en">
+<!-- Quy Trinh Cat -->
+<head>
+    <% include ../block/head %>
+</head>
+
+<body class="nav-md footer_fixed">
+    <div class="container body">
+        <div class="main_container">
+            <% include ../block/leftpanelV2 %>
+                <% include ../block/toppanelV2 %>
+                    <!-- page content -->
+                    <div class="right_col " role="main" style="min-height: 100vh">
+                        <div class="">
+                            <div class="page-title">
+                                <div class="title_left">
+                                    <h3> <small><strong></strong></small></h3>
+
+                                </div>
+                            </div>
+                        </div>
+                        <div class="row">
+                            <div class="col-md-12 col-sm-12">
+                                <div class="x_panel">
+                                    <div class="x_title">
+                                        <h2>Quy Trình Quản Lý Nguyên Phụ Liệu</h2>
+                                        <ul class="nav navbar-right panel_toolbox">
+                                            <li><a class="collapse-link"><i class="fa fa-chevron-up"></i></a> </li>
+                                        </ul>
+                                        <div class="clearfix"></div>
+                                    </div>
+        
+                                    <div class="x_content" id="xcontentid">
+                                        <img id="img_ID" src="/images/kho/QTQLNVLImage.png" width="100%" height="600px" alt="Planets" usemap="#map" >
+                                        <map id="map_ID" name="map">
+                                            <!-- lien lac nha cung cap -->
+                                            <area shape="rect" coords="410,225,630,250" href="/kho/LIENLACETDETAQTY" alt="LIENLACETDETAQTY">
+                                            <area shape="rect" coords="410,245,590,270" href="/kho/LienLacThieuDu" alt="LienLacThieuDu">
+                                            <area shape="rect" coords="410,265,550,290" href="/kho/LIENLACLOINVL" alt="LIENLACLOINVL">
+                                            <area shape="rect" coords="410,285,550,310" href="/kho/LIENLACDIEUCHINHNGAYGUINVL" alt="LIENLACDIEUCHINHNGAYGUINVL">
+
+                                             <!-- Nhan hang -->
+                                             <area shape="rect" coords="750,140,1000,370" href="/kho/NHANHANG" alt="NHANHANG">
+
+                                            <!-- Sap xep len ke-->
+                                             <area shape="rect" coords="1100,160,1350,320" href="/kho/SXNVLLENKE" alt="SXNVLLENKE">
+
+                                            <!-- Sap xep len ke-->
+                                            <area shape="rect" coords="1450,140,1700,370" href="/kho/LAYHANG" alt="LAYHANG">
+
+                                            <!-- KIEMTRACHATLUONG -->
+                                            <area shape="rect" coords="1450,420,1700,700" href="/kho/KIEMTRACHATLUONG" alt="KIEMTRACHATLUONG">
+
+                                            <!-- GIAOHANG -->
+                                            <area shape="rect" coords="1100,450,1350,650" href="/kho/GIAOHANG" alt="GIAOHANG">
+
+                                            <!-- QLNVLDU -->
+                                            <area shape="rect" coords="750,450,1000,650" href="/kho/QLNVLDU" alt="GIAOHANG">
+                                        </map>
+                                     
+                                    </div>
+                                </div>
+                              
+
+                            </div>
+                        </div>
+                    </div>
+                    <!-- /page content -->
+
+                    <!-- footer content -->
+                    <footer>
+                        <div class="pull-right">
+                            Wacoal - Bootstrap Admin Template by <a href="/home">Thai Hoa</a>
+                        </div>
+                        <div class="clearfix"></div>
+                    </footer>
+                    <!-- /footer content -->
+        </div>
+    </div>
+    
+    <% include ../block/script %>
+</body>
+<script type="text/javascript" src="/js/imageMapResizer.min.js"></script>
+<script type="text/javascript">
+
+    $('map').imageMapResize();
+
+</script>
+
+<!-- <script src="/javascripts/cat/CatSDTC.js"></script> -->
+
+<!-- <script language="JavaScript">
+    var firefox=document.getElementById&&!document.all;
+    document.onmousemove=mouseMove;
+    function mouseMove(e){
+    var str;
+    // str=screen.width;
+    if (firefox) str="x="+e.clientX+", y="+e.clientY;
+    else str="x="+event.clientX+", y="+event.clientY;
+
+    document.title=str;
+    }
+    </script> -->
+
+
+
+</html>

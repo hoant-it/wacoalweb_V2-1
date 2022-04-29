@@ -1,0 +1,35 @@
+body{
+    margin: 0;
+    padding: 0;
+    height: 100vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background: black;
+    font-family: 'Times New Roman', Times, serif
+
+}
+
+.QRImg  {
+    /* width: 100%; */
+    width: 400px;
+    height: 400px;
+    background-size: cover;
+    text-align: center;
+
+
+}
+
+
+.QRImg >h1{
+    color: whitesmoke;
+    /* pointer-events: none; */
+    user-select: none;
+    
+}
+
+.QRImg a {
+    text-decoration: none;
+    color: whitesmoke;
+    font-weight: 500;
+}

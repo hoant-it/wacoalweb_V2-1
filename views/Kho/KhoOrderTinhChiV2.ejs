@@ -1,0 +1,238 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <% include ../block/head %>
+    <link rel="stylesheet" href="/css/dataTables.bootstrap4.min.css">
+    <link rel="stylesheet" href="/css/jquery.dataTables.min.css">
+    <link rel="stylesheet" href="/css/kho/KhoOrderTinhChiV2.css">
+    <link rel="stylesheet" href="/css/buttons.bootstrap4.min.css">
+</head>
+
+<body class="nav-md footer_fixed">
+
+    
+        <div class="container body">
+            <div class="main_container">
+                <% include ../block/leftpanelV2 %>
+                    <% include ../block/toppanelV2 %>
+                    <form action="/kho/ordertinhchiv2" method="POST">
+                        <!-- page content -->
+                        <div class="right_col " role="main" style="min-height: 100vh">
+                            <div class="">
+                                <div class="page-title">
+                                    <div class="title_left">
+                                        <h3> <small><strong></strong></small></h3>
+
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="row">
+                                <div class="col-md-12 ">
+                                    <div class="x_panel">
+                                        <div class="x_title">
+                                            <h2>Tìm kiếm Đơn Hàng <small></small></h2>
+                                            <ul class="nav navbar-right panel_toolbox">
+                                                <li><a class="collapse-link"><i class="fa fa-chevron-up"></i></a>
+                                                </li>
+                                            </ul>
+                                            <div class="clearfix"></div>
+                                        </div>
+                                        <div class="x_content">
+                                            <br>
+
+                                                <label class="col-form-label col-md-1 col-sm-1 label-align" for="first-name">Order No <span class="required">*</span> </label>
+                                                <div class="col-md-1 col-sm-1 ">
+                                                    <select class="form-control" name="selectNam">
+                                                      <%  if( arrNamSelect) { %>
+                                                          <%  for(var i= 0; i< arrNamSelect.length; i++) { %>
+                                                                  <%  if( arrNamSelect[i].values  === selectNam ) { %>
+                                                                        <option value="<%-arrNamSelect[i].ORDERNO %>" selected> <%=arrNamSelect[i].ORDERNO %> </option>
+                                                                  <%  } else { %>
+                                                                        <option value="<%-arrNamSelect[i].ORDERNO %>"> <%=arrNamSelect[i].ORDERNO %> </option>
+                                                                   <% } %>
+                                                          <%  } %>
+                                                      <%  } else { %>
+                                                        <option> </option>
+                                                      <%  } %>
+                                                    </select>
+                                                </div>
+                                        
+                                                <label class="col-form-label col-md-1 col-sm-1 label-align" for="first-name">Khách Hàng <span class="required">*</span>
+                                                </label>
+                                                <div class="col-md-2 col-sm-2 ">
+                                                    <select class="form-control" name="selectKH">
+                                                        <option value="03"> 03:SPA</option>
+                                                    </select>
+                                                </div>
+                                                <!-- hang tren -->
+                                          
+                                                <div class="col-md-1 col-sm-1 ">
+                                                    <button type="submit" name="bsubmit" value="submitSearch" class="btn btn-primary" id="btnSearchId">Search</button>
+
+                                                </div>
+                                                
+                                                <!-- hang tren -->
+                                            
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="row">
+                                <div class="col-md-12">
+                                    <div class="x_panel">
+                                        <div class="x_title">
+                                            <h2>Danh Sách Tính Chỉ Theo Đơn Hàng</h2>
+                                            <ul class="nav navbar-right panel_toolbox">
+                                                <li><a class="collapse-link"><i class="fa fa-chevron-up"></i></a> </li>
+                                            </ul>
+                                            <div class="clearfix"></div>
+                                        </div>
+                                        <div class="x_content" id="xcontentid">
+                                            <table class="table table-striped table-bordered mydatatable" style="width: 100%;">
+                                                <thead>
+                                                    <tr>
+                                                        <th colspan="2" style="text-align: center; vertical-align: middle;">R60</th>
+                                                        <th colspan="2" style="text-align: center; vertical-align: middle;">WA</th>
+                                                        <th colspan="2" style="text-align: center; vertical-align: middle;">WB</th>
+                                                        <th colspan="2" style="text-align: center; vertical-align: middle;">W300</th>
+                                                        <th colspan="2" style="text-align: center; vertical-align: middle;">S80</th>
+                                                        <th colspan="2" style="text-align: center; vertical-align: middle;">K60</th>
+                                                        <th colspan="2" style="text-align: center; vertical-align: middle;">GOMU</th>
+                                                        <th colspan="2" style="text-align: center; vertical-align: middle;">K80</th>
+                                                    </tr>
+                                                    <tr>
+                                                        <th>COLOR</th>
+                                                        <th>QTY</th>
+                                                        <th>COLOR</th>
+                                                        <th>QTY</th>
+                                                        <th>COLOR</th>
+                                                        <th>QTY</th>
+                                                        <th>COLOR</th>
+                                                        <th>QTY</th>
+                                                        <th>COLOR</th>
+                                                        <th>QTY</th>
+                                                        <th>COLOR</th>
+                                                        <th>QTY</th>
+                                                        <th>COLOR</th>
+                                                        <th>QTY</th>
+                                                        <th>COLOR</th>
+                                                        <th>QTY</th>
+                                                    </tr>
+                                                </thead>
+                                                <tbody>
+                                                    <% if (arrOrder) { %>
+                                                        <% for( var i=0 ; i < arrOrder.length ; i++) { %>
+                                                            <tr>
+                                                                <td>
+                                                                    <%=arrOrder[i].COLOR_R60 %>
+                                                                </td>
+                                                                <td>
+                                                                    <%=arrOrder[i].SL_R60 %>
+                                                                </td>
+                                                                <td>
+                                                                    <%=arrOrder[i].COLOR_WA %>
+                                                                </td>
+                                                                <td>
+                                                                    <%=arrOrder[i].SL_WA %>
+                                                                </td>
+                                                                <td>
+                                                                    <%=arrOrder[i].COLOR_WB %>
+                                                                </td>
+                                                                <td>
+                                                                    <%=arrOrder[i].SL_WB %>
+                                                                </td>
+                                                                <td>
+                                                                    <%=arrOrder[i].COLOR_W300 %>
+                                                                </td>
+                                                                <td>
+                                                                    <%=arrOrder[i].SL_W300 %>
+                                                                </td>
+                                                                <td>
+                                                                    <%=arrOrder[i].COLOR_S80 %>
+                                                                </td>
+                                                                <td>
+                                                                    <%=arrOrder[i].SL_S80 %>
+                                                                </td>
+                                                                <td>
+                                                                    <%=arrOrder[i].COLOR_K60 %>
+                                                                </td>
+                                                                <td>
+                                                                    <%=arrOrder[i].SL_K60 %>
+                                                                </td>
+                                                                <td>
+                                                                    <%=arrOrder[i].COLOR_GOMU %>
+                                                                </td>
+                                                                <td>
+                                                                    <%=arrOrder[i].SL_GOMU %>
+                                                                </td>
+                                                                <td>
+                                                                    <%=arrOrder[i].COLOR_K80 %>
+                                                                </td>
+                                                                <td>
+                                                                    <%=arrOrder[i].SL_K80 %>
+                                                                </td>
+                                                             
+                                                            </tr>
+                                                            <% } %>
+                                                                <% } else { %>
+                                                                    <tr>
+                                                                        <td> Empty </td>
+                                                                        <td> Empty </td>
+                                                                        <td> Empty </td>
+                                                                        <td> Empty </td>
+                                                                        <td> Empty </td>
+                                                                        <td> Empty </td>
+                                                                        <td> Empty </td>
+                                                                        <td> Empty </td>
+                                                                        <td> Empty </td>
+                                                                        <td> Empty </td>
+                                                                        <td> Empty </td>
+                                                                        <td> Empty </td>
+                                                                        <td> Empty </td>
+                                                                        <td> Empty </td>
+                                                                        <td> Empty </td>
+                                                                        <td> Empty </td>
+                                                                    </tr>
+                                                                    <% } %>
+                                                </tbody>
+                            
+                                            </table>
+                            
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <!-- /page content -->
+
+                        <!-- footer content -->
+                        <footer>
+                            <div class="pull-right">
+                                Wacoal - Bootstrap Admin Template by <a href="/home">Thai Hoa</a>
+                            </div>
+                            <div class="clearfix"></div>
+                        </footer>
+                        <!-- /footer content -->
+            </div>
+        </div>
+        <% include ../block/script %>
+        <!-- <script src="/js/jquery-3.5.1.min.js"> </script> -->
+        <script src="/js/popper.min.js"></script>
+        <script src="/js/bootstrap.min.js"></script>
+        <script src="/js/jquery.dataTables.min.js"></script>
+        <script src="/js/dataTables.bootstrap4.min.js"></script>
+       
+        <script src="/js/dataTables.buttons.min.js"></script>
+        <script src="/js/buttons.bootstrap4.min.js"></script>
+        <script src="/ajax/libs/jszip/3.1.3/jszip.min.js"></script>
+        <script src="/ajax/libs/pdfmake/0.1.53/pdfmake.min.js"></script>
+        <script src="/ajax/libs/pdfmake/0.1.53/vfs_fonts.js"></script>
+        <script src="/buttons/1.6.5/js/buttons.html5.min.js"></script>
+        <script src="/buttons/1.6.5/js/buttons.print.min.js"></script>
+        <script src="/buttons/1.6.5/js/buttons.colVis.min.js"></script>
+        <script src="/javascripts/kho/KhoOrderTinhChiV2js.js"></script>
+    </form>
+</body>
+
+</html>

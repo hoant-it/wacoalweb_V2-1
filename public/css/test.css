@@ -1,0 +1,53 @@
+body{
+    margin: 0;
+    padding: 0;
+    height: 100vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background: black;
+
+
+}
+
+.video > video {
+    width: 100%;
+}
+
+/* 
+@media (max-width:600px){
+    .video > video {
+        width: 100%;
+    }
+}
+
+@media (min-width:500px){
+    .video > video {
+        width: 400px
+    }
+}
+
+@media (min-width:601px){
+    .video > video {
+        width: 600px
+    }
+}
+
+@media (min-width:768px){
+    .video > video {
+        width: 700px
+    }
+}
+
+@media (min-width:992px){
+    .video > video {
+        width: 900px
+    }
+}
+
+@media (min-width:1200px){
+    .video > video {
+        width: 1100px
+    }
+}   */
+

@@ -1,0 +1,92 @@
+<header class="header">
+    <a href="/">
+        <img src="/images/Wacoal_images.png" alt="Wacoal Logo" class="wacoal-logo">
+    </a>
+    <div class="search-bar">
+        <input type="text" class="search-input" placeholder="Search" aria-label="Search" id="txtSearch">
+        <button type="button"  class="search-btn" id="btnSearch">
+            <i class="fas fa-search"></i>
+        </button>
+    </div>
+    <div class="menu-icons" id="menuIconsId">
+        <!-- <a href="#">
+            <i class="fa fa-upload"></i>
+        </a> -->
+        <ul class="menu">
+            <li class="has-submenu">
+                <i class="fa fa-upload"></i>
+                <ul class="submenu">
+                    <li>
+                        <div class="menu-text">
+                            <i class="fas fa-video"></i>
+                            <a href="/video/videolist">Tải video lên</a>
+                        </div>
+                    </li>
+                    <!-- <li>
+                        <button>PDF</button>
+                    </li> -->
+                </ul>
+    
+            </li>
+            <li class="has-submenu">
+                <img src="/images/user.png" alt="Wacoal Logo" class="wacoal-logo">
+                <ul class="submenu">
+                    <li>
+                        <div class="menu-text">
+                            <i class="fas fa-sign-in-alt"></i>
+                            <a href="/login">Đăng Nhập</a>
+                        </div>
+                       
+                    </li>
+                   
+                    <li>
+                        <form class="menu-text" id="form1" action="/logout" method="POST"> 
+                            <i class="fas fa-sign-out-alt"></i>
+                            <a  href="javascript:;" onclick="logout()">
+                                Đăng Xuất
+                            </a>
+                            <script>
+                                function logout(){
+                                    localStorage.clear();
+                                    document.getElementById('form1').submit();  
+                                }
+                            </script>
+                        </form>
+                    </li>
+
+                    <li>
+                        <div class="menu-text">
+                            <i class="fa fa-question-circle"></i>
+                            <a href="/video/videoplay?videoName=videoHuongDanUploadVideo">Hướng dẫn Tải video</a>
+                        </div>
+                       
+                    </li>
+
+                    <li>
+                        <div class="menu-text">
+                            <i class="fa fa-question-circle"></i>
+                            <a href="/video/videoplay?videoName=HuongDanXemVideo">Hướng dẫn Tải video</a>
+                        </div>
+                       
+                    </li>
+
+                   
+                </ul>
+    
+            </li>
+        </ul>
+    
+        <!-- <a href="#">
+            <i class="fas fa-table"></i>
+        </a>
+        <a href="#">
+            <i class="fas fa-bell"></i>
+        </a> -->
+        <!-- <a href="#">
+            <img class="menu-channel-icon" src="https://picsum.photos/36/36" alt="Your Chanel">
+        </a> -->
+     
+      
+    </div>
+
+</header>

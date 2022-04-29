@@ -1,0 +1,94 @@
+<!DOCTYPE html>
+<html lang="en">
+<!-- Quy Trinh Cat -->
+<head>
+    <% include ../block/head %>
+</head>
+
+<body class="nav-md footer_fixed">
+    <div class="container body">
+        <div class="main_container">
+            <% include ../block/leftpanelV2 %>
+                <% include ../block/toppanelV2 %>
+                    <!-- page content -->
+                    <div class="right_col " role="main" style="min-height: 100vh">
+                        <div class="">
+                            <div class="page-title">
+                                <div class="title_left">
+                                    <h3> <small><strong></strong></small></h3>
+
+                                </div>
+                            </div>
+                        </div>
+                        <div class="row">
+                            <div class="col-md-12 col-sm-12">
+                                <img id="img_ID" src="/images/cat/SDQTCatRenImage.png" width="100%" height="600px" alt="Planets" usemap="#map" >
+                                <map id="map" name="map">
+                                    <area shape="rect" coords="40,170,160,290" href="/cat/NHANRENSENPATSU" alt="NHANRENSENPATSU">
+                                    <!-- THAOXEPREN_HANGSENPATSU -->
+                                    <area shape="rect" coords="200,170,320,290" href="/cat/THAOXEPREN_HANGSENPATSU" alt="THAOXEPREN_HANGSENPATSU">
+                                    <!-- GIACSODODINHMUCTUNGSIZE -->
+                                    <area shape="rect" coords="360,170,510,290" href="/cat/GIACSODODINHMUCTUNGSIZE" alt="GIACSODODINHMUCTUNGSIZE">
+                                    <!-- LIENLACKHACHHANGXULY_RV -->
+                                    <area shape="rect" coords="360,50,510,160" href="/cat/LIENLACKHACHHANGXULY_RV" alt="LIENLACKHACHHANGXULY_RV">
+
+                                    <!-- LAMBANGHUONGDANCATREN -->
+                                    <area shape="rect" coords="550,170,670,290" href="/cat/LAMBANGHUONGDANCATREN" alt="LAMBANGHUONGDANCATREN">
+                                    <!-- CAT_VA_KIEM_TRA_MC_VOI_PATTERN -->
+                                    <area shape="rect" coords="710,170,830,290" href="/cat/CAT_VA_KIEM_TRA_MC_VOI_PATTERN" alt="CAT_VA_KIEM_TRA_MC_VOI_PATTERN">
+                                    <!-- GIAOKYTHUAT -->
+                                    <area shape="rect" coords="880,170,1000,290" href="/cat/GIAOKYTHUAT" alt="GIAOKYTHUAT">
+                                    <!-- NHAN_XEPREN_MHLL -->
+                                    <area shape="rect" coords="200,340,320,470" href="/cat/NHAN_XEPREN_MHLL" alt="THAOXEPREN_HANGSENPATSU">
+                                    <!-- LIENLACKHACHHANGXULY_RV -->
+                                    <area shape="rect" coords="360,500,510,600" href="/cat/LIENLACKHACHHANGXULY_RV" alt="GIACSODODINHMUCTUNGSIZE">
+
+                                </map>
+
+                            </div>
+                        </div>
+
+                       
+                    
+                      
+                    </div>
+                    <!-- /page content -->
+
+                    <!-- footer content -->
+                    <footer>
+                        <div class="pull-right">
+                            Wacoal - Bootstrap Admin Template by <a href="/home">Thai Hoa</a>
+                        </div>
+                        <div class="clearfix"></div>
+                    </footer>
+                    <!-- /footer content -->
+        </div>
+    </div>
+    
+    <% include ../block/script %>
+</body>
+<script type="text/javascript" src="/js/imageMapResizer.min.js"></script>
+<script type="text/javascript">
+
+    $('map').imageMapResize();
+
+</script>
+
+<!-- <script src="/javascripts/cat/CatSDTC.js"></script> -->
+
+<script language="JavaScript">
+    var firefox=document.getElementById&&!document.all;
+    document.onmousemove=mouseMove;
+    function mouseMove(e){
+    var str;
+    // str=screen.width;
+    if (firefox) str="x="+e.clientX+", y="+e.clientY;
+    else str="x="+event.clientX+", y="+event.clientY;
+
+    document.title=str;
+    }
+    </script>
+
+
+
+</html>

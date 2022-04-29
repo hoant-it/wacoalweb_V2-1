@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Video </title>
+    <link rel="stylesheet" href="/css/video/videohome.css">
+    <link rel="stylesheet" href="/css/video/dropdownmenu.css">
+    <link rel="stylesheet" href="/css/video/videoplay.css">
+</head>
+<body>
+    <% include ./videoheader %>
+    <div class="video-play" id="videoId">
+        <!-- <video width="800" controls> -->
+            <!-- <source src="/video/No.2-1 Form dart in upper cup lining.mp4" type="video/mp4"> -->
+            <!-- <source src="/video/2-1%20Form%20dart%20in%20upper%20cup%20lining.mp4" type="video/mp4"> -->
+            <!-- Your browser does not support HTML video. -->
+          <!-- </video> -->
+
+    </div>
+   
+<script>
+    var videoId= document.getElementById("videoId");
+    // var sHtLMLVideoFinal="";
+        function GetURLParameter(sParam){
+        var sPageUrl= window.location.search.substring(1);
+        var sUrlVariables= sPageUrl.split('&');
+        for(var i =0; i< sUrlVariables.length; i++){
+            var sParemetterName= sUrlVariables[i].split('=');
+            if(sParemetterName[0] === sParam){
+                return sParemetterName[1];
+            }
+        }
+    }
+
+    document.addEventListener("DOMContentLoaded", function(){
+        var videoName= GetURLParameter("videoName");
+        // var videoNameUnescape= unescape(videoName);
+        // var sHtLMLVideo= `<video controls>
+        //     <source src="/video/${videoName}.mp4" type="video/mp4">
+        //     <source src="/video/${videoName}.webm" type="video/webm">
+        //     <source src="/video/${videoName}.ogg" type="video/ogg">
+        //     Your browser does not support HTML video.
+        //   </video>`
+        //   sHtLMLVideoFinal  = unescape(sHtLMLVideo);
+        //   videoId.innerHTML=sHtLMLVideoFinal;
+
+          var sHtLMLVideo= `<video controls>
+            <source src="/video/${videoName}.mp4" type="video/mp4">
+            <source src="/video/${videoName}.webm" type="video/webm">
+            <source src="/video/${videoName}.ogg" type="video/ogg">
+            Your browser does not support HTML video.
+          </video>`
+ 
+          videoId.innerHTML=sHtLMLVideo;
+
+        //   console.log(sHtLMLVideoFinal);
+        
+        // console.log(videoName);
+
+    }) 
+
+
+
+
+   
+</script>
+<!-- jQuery -->
+<script src="/vendors/jquery/dist/jquery.min.js"></script>
+ <!-- Bootstrap -->
+<script src="/vendors/bootstrap/dist/js/bootstrap.bundle.min.js"></script>
+<script src="/js/use.fontawesome.com/releases/v5.15.4/js/all.js" data-auto-replace-svg="nest"></script>   
+<script src="/javascripts/video/videohome.js"></script>  
+</body>
+</html>

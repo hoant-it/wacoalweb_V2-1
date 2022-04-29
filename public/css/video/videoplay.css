@@ -1,0 +1,9 @@
+.video-play{
+    margin: 0 2rem;
+
+}
+
+.video-play video{
+    width: 100%;
+    height: 70vh;
+}

@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<html lang="en">
+<!-- Quy Trinh Cat -->
+<head>
+    <% include ../block/head %>
+</head>
+
+<body class="nav-md footer_fixed">
+    <div class="container body">
+        <div class="main_container">
+            <% include ../block/leftpanelV2 %>
+                <% include ../block/toppanelV2 %>
+                    <!-- page content -->
+                    <div class="right_col " role="main" style="min-height: 100vh">
+                        <div class="">
+                            <div class="page-title">
+                                <div class="title_left">
+                                    <h3> <small><strong></strong></small></h3>
+
+                                </div>
+                            </div>
+                        </div>
+                        <div class="row">
+                            <div class="col-md-12 col-sm-12">
+                                <img id="img_ID" src="/images/kho/QTDChiImage.png" width="100%" height="600px" alt="Planets" usemap="#map" >
+                                <map id="map_ID" name="map">
+                                    <!-- <area shape="rect" coords="0,260,160,150" href="/huyorder" alt="huyOrder">
+                                    <area shape="rect" coords="0,560,150,630" href="/Cat/LLKHCard" alt="LLKHCard">
+                                    <area shape="rect" coords="200,470,340,540" href="/Cat/TDLCard" alt="TDLCard">
+                                    <area shape="rect" coords="400,430,540,570" href="/Cat/CatMasterPattern" alt="CatMasterPattern">
+                                    <area shape="rect" coords="600,470,740,540" href="/Cat/GKT" alt="GKT"> -->
+                                </map>
+
+                            </div>
+                        </div>
+
+                       
+                    
+                      
+                    </div>
+                    <!-- /page content -->
+
+                    <!-- footer content -->
+                    <footer>
+                        <div class="pull-right">
+                            Wacoal - Bootstrap Admin Template by <a href="/home">Thai Hoa</a>
+                        </div>
+                        <div class="clearfix"></div>
+                    </footer>
+                    <!-- /footer content -->
+        </div>
+    </div>
+    
+    <% include ../block/script %>
+</body>
+<script type="text/javascript" src="/js/imageMapResizer.min.js"></script>
+<script type="text/javascript">
+
+    $('map').imageMapResize();
+
+</script>
+
+<script src="/javascripts/cat/CatSDTC.js"></script>
+
+<script language="JavaScript">
+    var firefox=document.getElementById&&!document.all;
+    document.onmousemove=mouseMove;
+    function mouseMove(e){
+    var str;
+    // str=screen.width;
+    if (firefox) str="x="+e.clientX+", y="+e.clientY;
+    else str="x="+event.clientX+", y="+event.clientY;
+
+    document.title=str;
+    }
+    </script>
+
+
+
+</html>

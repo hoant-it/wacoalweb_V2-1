@@ -1,0 +1,191 @@
+*{
+    margin: 0;
+    padding: 0;
+    font-family: 'Roboto', sans-serif;
+    box-sizing: border-box;
+}
+
+body{
+    height: 100vh;
+    display: flex;
+    align-items: center;
+ 
+    /* justify-content: center; */
+    flex-direction: column;
+    /* background: black; */
+    /* color: whitesmoke; */
+    overflow: hidden;
+    background-image: url('/images/NamMoi2.jpg');
+    background-size: cover;
+    background-position: center;
+/* background: linear-gradient(90deg, rgba(2,0,36,1) 0%, rgba(133,104,104,1) 47%, rgba(252,0,255,1) 100%);    */
+} 
+.header{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    font-size: larger;
+    font-weight: 700;
+    color: aquamarine;
+    margin-bottom: 1rem;
+}
+.header h3{
+    /* position: relative; */
+    font-size: 3rem;
+    /* letter-spacing: 15px; */
+    color: #fff;
+    text-transform: uppercase;
+    width: 100%;
+    text-align: center;
+    /* -webkit-box-reflect: below 1px linear-gradient(transparent,#0008); */
+    line-height: 1em;
+    outline: none;
+    /* animation:  animate 5s linear infinite; */
+    text-shadow: 0 0 10px #03bcf4,
+    0 0 20px #03bcf4,
+    0 0 40px #03bcf4,
+    0 0 80px #03bcf4,
+    0 0 160px #03bcf4;
+
+}
+
+.header h2{
+    color: darksalmon;
+    font-size: 1.5rem;
+    text-shadow: 0 0 10px #03bcf4,
+    0 0 20px #03bcf4,
+    0 0 40px #03bcf4,
+    0 0 80px #03bcf4,
+    0 0 160px #03bcf4;
+    text-align: center;
+}
+.row{
+    margin-left: 1em;
+    margin-right: 1em;
+}
+.container-lucky{
+    width: 100%;
+    height: 50vh;
+  
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: flex-end;
+    
+}
+.number{
+    width: 100%;
+    height: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    /* border: 1px solid rgba(0, 0, 0, .7); */
+    /* background-color: seashell; */
+    margin-bottom: 1rem;
+    /* margin-top: 1rem; */
+    /* padding: 10px 0; */
+    /* margin: 20px 20px; */
+}
+
+.label-number{
+    color: whitesmoke;
+    font-size: 8rem;
+    text-shadow: 0 0 10px #03bcf4,
+    0 0 20px #03bcf4,
+    0 0 40px #03bcf4,
+    0 0 80px #03bcf4,
+    0 0 160px #03bcf4;
+}
+
+.lblArlet{
+    color: whitesmoke;
+    font-size: 2rem;
+    margin-top: 1rem;
+    text-align: center;
+    width: 100%;
+    text-shadow: 0 0 10px #03bcf4,
+    0 0 20px #03bcf4,
+    0 0 40px #03bcf4,
+    0 0 80px #03bcf4,
+    0 0 160px #03bcf4;
+}
+
+
+.tbl-Pt{
+    border-collapse: collapse;
+    width: 100%;
+}
+
+.tbl-Pt td, th {
+    border:  1px solid #dddddd;
+    text-align: left;
+}
+.tbl-Pt tr:nth-child(1) {
+    background-color: brown;
+}
+
+.tbl-Pt tr:nth-child(even) {
+    background-color: #dddddd;
+    color: black;
+}
+
+#VideoGrid, #PhanThuongGrid{
+    width: 100%;
+    height: 65vh;
+}
+
+
+@media (max-width:1500px) {
+    .label-number{
+        color: whitesmoke;
+        font-size: 4rem;
+    }
+ 
+    
+    .lblArlet{
+        color: whitesmoke;
+        font-size: 1rem;
+        margin-top: 1rem;
+        DISPLAY: FLEX;
+        ALIGN-ITEMS: CENTER;
+        JUSTIFY-CONTENT: CENTER;
+    }
+    
+}
+
+@media (max-width:800px) {
+    .label-number{
+        color: whitesmoke;
+        font-size: 4rem;
+    }
+    .container-lucky{
+        height: 100%;
+    }
+    .header h3{
+        /* position: relative; */
+        font-size: 2rem;
+    }
+    .header h2{
+        /* position: relative; */
+        font-size: 1rem;
+    }
+ 
+    
+    .lblArlet{
+        color: whitesmoke;
+        font-size: 1rem;
+        margin-top: 1rem;
+        DISPLAY: FLEX;
+        ALIGN-ITEMS: CENTER;
+        JUSTIFY-CONTENT: CENTER;
+    }
+    #VideoGrid, #PhanThuongGrid{
+      
+        width: 100%;
+        height: 100%;
+    }
+    .x_panel{
+        display: none;
+    }
+}

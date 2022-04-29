@@ -1,0 +1,121 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="/css/login.css">
+    <!-- Bootstrap -->
+    <link href="/vendors/bootstrap/dist/css/bootstrap.min.css" rel="stylesheet">
+    <!-- Font Awesome -->
+    <link href="/vendors/font-awesome/css/font-awesome.min.css" rel="stylesheet">
+    <!-- NProgress -->
+    <link href="/vendors/nprogress/nprogress.css" rel="stylesheet">
+    <!-- Animate.css -->
+    <link href="/vendors/animate.css/animate.min.css" rel="stylesheet">
+
+    <!-- Custom Theme Style -->
+    <!-- <link href="/build/css/custom.min.css" rel="stylesheet"> -->
+
+    <script src="/vendors/jquery/dist/jquery.min.js"></script>
+
+</head>
+
+<body>
+    <form action="/login" method="POST" id="frmLoginPost">
+        <!-- <h2>Đăng nhập</h2> -->
+
+        <a href="/">
+
+            <!-- <ion-icon name="logo-apple" class="logo-apple"></ion-icon> -->
+            <img src="images/Wacoal_images.png" alt="..." class="imgLogo">
+
+
+        </a>
+        </div>
+
+        <div class="input-group">
+            <input type="text" name="userName" id="userName" placeholder="Tên Đăng Nhập" required>
+            <!-- <label for="username">Tên Đăng Nhập</label > -->
+        </div>
+        <div class="input-group">
+            <input type="password" name="password" id="password" placeholder="Mật Khẩu" required>
+            <i class="fa fa-eye-slash" id="btnShowPass"></i>
+            <!-- <i class="fa fa-eye"></i> -->
+            <!-- <span class="input-group-btn">
+                <button class="btn btn-default reveal" type="button" id="btnShowPass"><i class="fa fa-eye"></i></button>
+            </span> -->
+        </div>
+
+        <div class="input-group">
+            <button class="login" type="submit">Đăng Nhập</button>
+            <!-- <a href="#">Quên mật khẩu</a> -->
+            <button type="button" id="btnLostPw" class="btnLostPw"> Quên Mật Khẩu?</button>
+        </div>
+
+
+
+        <div>
+            <p>©2021 All Rights Reserved. <br>
+                Wacoal is a Bootstrap 3 template.Design By Thai Hoa</p>
+        </div>
+
+        <% if (messageError!=="" ){ %>
+            <!-- <div class="alert alert-danger alert-dismissible " role="alert" id="myAlert2">
+                <button type="button" class="close" data-dismiss="alert" aria-label="Close"><span
+                        aria-hidden="true">×</span>
+                </button>
+                <strong>Error:</strong>
+                <%=messageError%>
+            </div> -->
+            <p class="lostPwP">
+                <%=messageError%>
+            </p>
+
+            <% } %>
+
+    </form>
+
+
+
+    <script>
+        var btnLostPw = document.getElementById('btnLostPw');
+        var frmLoginPost = document.getElementById("frmLoginPost");
+        var userName = document.getElementById("userName");
+        var userNameValue = userName.value;
+        var password = document.getElementById("password");
+        var passwordValue = password.value;
+        let btnShowPass = document.getElementById("btnShowPass");
+        // frmLoginPost.addEventListener('submit',Login);
+
+
+        function showAlert(text = "") {
+            var pText = `<p class="lostPwP"> Liên Hệ Administrator (114)  </p>`
+            frmLoginPost.innerHTML += pText
+        }
+
+        function showPass() {
+            if (password.type === 'password') {
+                password.type = "text"
+                btnShowPass.classList.replace("fa-eye-slash","fa-eye")
+            } else {
+                password.type = "password"
+                btnShowPass.classList.replace("fa-eye","fa-eye-slash")
+            }
+        }
+
+        btnLostPw.addEventListener('click', showAlert);
+
+        btnShowPass.addEventListener("click", showPass)
+
+        $("#userName").change(function () {
+            if ($('#userName').val().toUpperCase() === "VNW") {
+                $('#password').val("W@c0Al");
+            }
+        });
+    </script>
+</body>
+
+</html>

@@ -1,0 +1,164 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <% include ../block/head %>
+        <link rel="stylesheet" type="text/css" href="/cdn3.devexpress.com/jslib/20.2.5/css/dx.common.css" />
+        <link rel="stylesheet" type="text/css" href="/cdn3.devexpress.com/jslib/20.2.5/css/dx.light.css" />
+</head>
+
+<body class="nav-md footer_fixed">
+
+    <div class="container body">
+        <div class="main_container">
+            <% include ../block/leftpanelV2 %>
+                <% include ../block/toppanelV2 %>
+
+
+                    <!-- page content -->
+                    <div class="right_col " role="main" style="min-height: 100vh">
+                        <div class="page-title">
+                            <div class="title_left">
+                                <h3> <small><strong></strong></small></h3>
+                            </div>
+                        </div>
+                        <div class="clearfix"></div>
+                        <div class="row">
+                            <div class="col-md-12">
+                                <div class="x_panel">
+                                    <div class="x_title">
+                                        <h2 id="titleHeader"></h2>
+                                        <ul class="nav navbar-right panel_toolbox">
+                                            <li><a class="collapse-link"><i class="fa fa-chevron-up"></i></a> </li>
+                                        </ul>
+                                        <div class="clearfix"></div>
+                                    </div>
+                                    <div class="x_content" id="xcontentid">
+                                        <div class="addButton"></div>
+                                        <div class="editButton"></div>
+                                        <div class="deleteButton"></div>
+                                        <div id="GridKeHang"></div>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="col-md-12">
+                                <div class="x_panel">
+                                    <div class="x_title">
+                                        <h2>Lịch sử Xuất</h2>
+                                        <ul class="nav navbar-right panel_toolbox">
+                                            <li><a class="collapse-link"><i class="fa fa-chevron-up"></i></a> </li>
+                                        </ul>
+                                        <div class="clearfix"></div>
+                                    </div>
+                                    <div class="x_content" id="xcontentid">
+                                    
+                                        <div id="GridLSXuat"></div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <!-- <div id="tooltipAdd">Thêm Vải</div>
+                        <div id="tooltipEdit">Lấy Vải</div> -->
+
+                        <!-- Modal -->
+                        <div class="modal fade" id="modalAddUpdate" role="dialog">
+                            <div class="modal-dialog none">
+
+                                <!-- Modal content-->
+                                <div class="modal-content">
+                                    <div class="modal-header">
+                                        <!-- <button type="button" class="close" data-dismiss="modal">&times;</button> -->
+                                        <h4 class="modal-title">Cập Nhật Vải</h4>
+                                    </div>
+                                    <div class="modal-body">
+                                        <div class="form-group row">
+                                            <label class="col-form-label col-md-3 col-sm-3 " for="">Kệ Hàng</label>
+                                            <div class="col-md-9 col-sm-9 ">
+                                                <div id="searchBoxKeHang"></div>
+                                            </div>
+                                        </div>
+                                        <div class="form-group row">
+                                            <label class="col-form-label col-md-3 col-sm-3 " for="txtNL">Nguyên
+                                                Liệu</label>
+                                            <div class="col-md-9 col-sm-9 ">
+                                                <input type="text" class="form-control" name="txtNL" id="txtNL">
+                                            </div>
+                                        </div>
+                                        <div class="form-group row">
+                                            <label class="col-form-label col-md-3 col-sm-3 " for="txtOrder">Order
+                                                No</label>
+                                            <div class="col-md-9 col-sm-9 ">
+                                                <input type="text" class="form-control" name="txtOrder" id="txtOrder">
+                                            </div>
+                                        </div>
+                                        <div class="form-group row">
+                                            <label class="col-form-label col-md-3 col-sm-3 " for="txtColor">Màu</label>
+                                            <div class="col-md-9 col-sm-9 ">
+                                                <input type="text" class="form-control" name="txtColor" id="txtColor">
+                                            </div>
+                                        </div>
+                                        <div class="form-group row" id="frmSlNhap">
+                                            <label class="col-form-label col-md-3 col-sm-3 " for="txtQty">Số
+                                                Lượng Nhập</label>
+                                            <div class="col-md-9 col-sm-9 ">
+                                                <input type="text" class="form-control" name="txtQty" id="txtQty">
+                                            </div>
+                                        </div>
+                                        <div class="form-group row" id="frmSlTon">
+                                            <label class="col-form-label col-md-3 col-sm-3 " for="txtQtyTon">Số
+                                                Lượng Tồn</label>
+                                            <div class="col-md-9 col-sm-9 ">
+                                                <input type="text" class="form-control" name="txtQtyTon" id="txtQtyTon">
+                                            </div>
+                                        </div>
+                                        <div class="form-group row" id="frmSlXuat">
+                                            <label class="col-form-label col-md-3 col-sm-3 " for="txtQtyXuat">Số
+                                                Lượng Xuất</label>
+                                            <div class="col-md-9 col-sm-9 ">
+                                                <input type="text" class="form-control" name="txtQtyXuat" id="txtQtyXuat">
+                                            </div>
+                                        </div>
+                                        <div class="form-group row">
+                                            <label class="col-form-label col-md-3 col-sm-3 " for="txtUnit">Đơn
+                                                vị</label>
+                                            <div class="col-md-9 col-sm-9 ">
+                                                <input type="text" class="form-control" name="txtUnit" id="txtUnit">
+                                            </div>
+                                        </div>
+
+                                        <div class="modal-footer">
+                                            <button type="button" name="submitInsert" value="submitInsert"
+                                                class="btn btn-primary" id="btnSave">Save</button>
+                                            <button type="button" class="btn btn-default"
+                                                data-dismiss="modal">Close</button>
+                                        </div>
+                                        <!-- <div class="checkbox">
+                                            <label><input type="checkbox" id="ckStatus">Active</label>
+                                            </div> -->
+
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <!-- modal -->
+
+                    </div>
+                    <!-- /page content -->
+
+                    <!-- footer content -->
+                    <footer>
+                        <div class="pull-right">
+                            Wacoal - Bootstrap Admin Template by <a href="/home">Thai Hoa</a>
+                        </div>
+                        <div class="clearfix"></div>
+                    </footer>
+                    <!-- /footer content -->
+
+        </div>
+    </div>
+
+    <% include ../block/script %>
+        <script src="/javascripts/kho/KeHangV2js.js"></script>
+</body>
+
+</html>

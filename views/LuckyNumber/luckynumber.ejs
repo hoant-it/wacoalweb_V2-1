@@ -1,0 +1,140 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Quay Số May Mắn</title>
+    <link rel="icon" href="/images/favicon.ico" type="image/ico" />
+
+    <!-- Bootstrap -->
+    <link href="/vendors/bootstrap/dist/css/bootstrap.min.css" rel="stylesheet">
+    <!-- Font Awesome -->
+    <link href="/vendors/font-awesome/css/font-awesome.min.css" rel="stylesheet">
+
+    <!-- Custom Theme Style -->
+    <link href="/build/css/custom.min.css" rel="stylesheet">
+    <!-- dev -->
+    <link rel="stylesheet" type="text/css" href="/cdn3.devexpress.com/jslib/20.2.5/css/dx.common.css" />
+    <link rel="stylesheet" type="text/css" href="/cdn3.devexpress.com/jslib/20.2.5/css/dx.light.css" />
+
+    <link rel="stylesheet" href="/css/luckynumber/luckynumber.css">
+    <!-- <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css"> -->
+
+</head>
+
+<body>
+ 
+    <header class="header">
+        <h3>CHƯƠNG TRÌNH RÚT THĂM TRÚNG THƯỞNG TẤT NIÊN 2021</h3>
+        <h2 id="hGiai"></h2>
+
+    </header>
+
+    <div class="container">
+        <div class="row">
+            <div class="col-md-4" id="divPt">
+                <div class="x_panel">
+                    <div class="x_title">
+                        <h2>Danh Sách Phần Thường</h2>
+                        <ul class="nav navbar-right panel_toolbox">
+                            <li><a class="collapse-link"><i class="fa fa-chevron-up"></i></a> </li>
+                        </ul>
+                        <div class="clearfix"></div>
+                    </div>
+                    <div class="x_content" id="xcontentid">
+                        <div id="PhanThuongGrid"></div>
+                    </div>
+                </div>
+              
+                <!-- <table class="tbl-Pt">
+                    <tr>
+                        <th> STT </th>
+                        <th> Phần Thường </th>
+                        <th> Đơn Vị </th>
+                        <th> Số Lượng </th>
+                    </tr>
+                    <tr>
+                        <td>1</td>
+                        <td> May Lanh</td>
+                        <td> PCS</td>
+                        <td>5</td>
+                    </tr>
+                </table> -->
+            </div>
+            <div class="col-md-4">
+                <div class="container-lucky">
+                    <div class="number">
+                        <label for="" id="lblNumber" class="label-number"> </label>
+                    </div>
+
+                    <% if (userId=== 'ngoclan' || userId=== 'admin'){ %>
+                        <button type="button" class="btn btn-success" id="btnStart"> Quay </button>
+                        <% } %>
+                 
+                </div>
+                <label for="" id="lblArlet" class="lblArlet"></label>
+
+            </div>
+            <div class="col-md-4">
+                <div class="x_panel">
+                    <div class="x_title">
+                        <h2>Danh Sách Nhân Viên Trúng Thưởng</h2>
+                        <ul class="nav navbar-right panel_toolbox">
+                            <li><a class="collapse-link"><i class="fa fa-chevron-up"></i></a> </li>
+                        </ul>
+                        <div class="clearfix"></div>
+                    </div>
+                    <div class="x_content" id="xcontentid">
+                        <div id="VideoGrid"></div>
+                    </div>
+                </div>
+
+            </div>
+        </div>
+    </div>
+
+
+
+    <!-- jQuery -->
+<script src="/vendors/jquery/dist/jquery.min.js"></script>
+<!-- Bootstrap -->
+<script src="/vendors/bootstrap/dist/js/bootstrap.bundle.min.js"></script>
+
+
+
+<script src="socket.io/socket.io.js"></script>
+
+<!-- devexpress -->
+<script src="/cdnjs.cloudflare.com/ajax/libs/babel-polyfill/7.4.0/polyfill.min.js"></script>
+<script src="/cdnjs.cloudflare.com/ajax/libs/exceljs/3.3.1/exceljs.min.js"></script>
+<script src="/cdnjs.cloudflare.com/ajax/libs/FileSaver.js/1.3.8/FileSaver.min.js"></script>
+<script>
+  window.jQuery || document.write(decodeURIComponent('%3Cscript src="js/jquery.min.js"%3E%3C/script%3E'))
+</script>
+<script src="/cdn3.devexpress.com/jslib/20.2.5/js/dx.all.js"></script>
+<!-- <script src="https://cdn3.devexpress.com/jslib/21.2.4/js/dx.all.js"></script> -->
+
+<script src="/unpkg.com/devextreme-aspnet-data@2.7.1/js/dx.aspnet.data.js"></script>
+<script src="/cdnjs.cloudflare.com/ajax/libs/cldrjs/0.4.4/cldr.min.js"></script>
+<script src="/cdnjs.cloudflare.com/ajax/libs/cldrjs/0.4.4/cldr/event.min.js"></script>
+<script src="/cdnjs.cloudflare.com/ajax/libs/cldrjs/0.4.4/cldr/supplemental.min.js"></script>
+<script src="/cdnjs.cloudflare.com/ajax/libs/cldrjs/0.4.4/cldr/unresolved.min.js"></script>
+
+<!-- <script src="https://cdnjs.cloudflare.com/ajax/libs/jspdf/1.3.4/jspdf.min.js"></script>
+<script src="/cdnjs.cloudflare.com/ajax/libs/jspdf/2.3.1/jspdf.umd.min.js"></script>
+<script src="/cdnjs.cloudflare.com/ajax/libs/jspdf-autotable/3.5.14/jspdf.plugin.autotable.min.js"></script> -->
+
+
+
+<script src="/js/use.fontawesome.com/releases/v5.15.4/js/all.js" data-auto-replace-svg="nest"></script>
+<script src="/build/js/custom.js"></script>
+<script src="/javascripts/luckynumber/luckynumber.js"></script>
+
+</body>
+
+
+
+</html>

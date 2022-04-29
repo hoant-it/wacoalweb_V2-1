@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <% include ../block/head %>
+</head>
+
+<body class="nav-md footer_fixed">
+  
+    <div class="container body">
+        <div class="main_container">
+            <% include ../block/leftpanelV2 %>
+                <% include ../block/toppanelV2 %>
+                <form action="/kho/DMCInput" method="POST" enctype="multipart/form-data">
+               
+                    <!-- page content -->
+                    <div class="right_col " role="main" style="min-height: 100vh">
+                            <div class="page-title">
+                                <div class="title_left">
+                                    <h3> <small><strong></strong></small></h3>
+                                </div>
+                            </div>
+                            <div class="clearfix"></div>
+
+                            <div class="row">
+                                <div class="col-md-12 col-sm-12">
+                                    <div class="x_panel">
+                                        <div class="x_title">
+                                            <h2>Nhập thông tin Tính chỉ theo Mã Hàng - Màu (excel file) <small></small></h2>
+                                            <ul class="nav navbar-right panel_toolbox">
+                                                <li><a class="collapse-link"><i class="fa fa-chevron-up"></i></a>
+                                                </li>
+                                            </ul>
+                                            <div class="clearfix"></div>
+                                        </div>
+                                        <div class="x_content">
+                                            <br>
+
+                                            <input type="file" name="filename">
+                                            <button type="submit"> import excel </button>
+                                            <% if (messageStatus==='') { %>
+                                                <div class="alert alert-info" role="alert">Begin import Excel File</div>
+                                            <% } else if( messageStatus==='err') { %>
+                                                <div class="alert alert-danger" role="alert"><%=message%></div>
+                                            <% } else if(messageStatus==='ok') { %>
+                                                <div class="alert alert-success" role="alert"><%=message%></div>
+                                            <% } %>
+
+                                    
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                           
+                         
+                
+                    </div>
+                    <!-- /page content -->
+
+                    <!-- footer content -->
+                    <footer>
+                        <div class="pull-right">
+                            Wacoal - Bootstrap Admin Template by <a href="/home">Thai Hoa</a>
+                        </div>
+                        <div class="clearfix"></div>
+                    </footer>
+                    <!-- /footer content -->
+                
+        </div>
+    </div>
+    <% include ../block/script %>
+    </form>
+</body>
+
+</html>

@@ -1,0 +1,141 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <% include ../block/head %>
+    <link rel="stylesheet" type="text/css" href="/cdn3.devexpress.com/jslib/20.2.5/css/dx.common.css" />
+    <link rel="stylesheet" type="text/css" href="/cdn3.devexpress.com/jslib/20.2.5/css/dx.light.css" />
+    <link rel="stylesheet" href="/css/kho/KhoOrderTinhChiGridViewDev.css">
+</head>
+
+<body class="nav-md footer_fixed">
+
+    
+        <div class="container body">
+            <div class="main_container">
+                <% include ../block/leftpanelV2 %>
+                    <% include ../block/toppanelV2 %>
+                    <form  method="POST" id="form1"> 
+                        <!-- page content -->
+                        <div class="right_col " role="main" style="min-height: 100vh">
+                            <div class="">
+                                <div class="page-title">
+                                    <div class="title_left">
+                                        <h3> <small><strong></strong></small></h3>
+
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="row">
+                                <div class="col-md-12 ">
+                                    <div class="x_panel">
+                                        <div class="x_title">
+                                            <h2>Tìm kiếm Đơn Hàng <small></small></h2>
+                                            <ul class="nav navbar-right panel_toolbox">
+                                                <li><a class="collapse-link"><i class="fa fa-chevron-up"></i></a>
+                                                </li>
+                                            </ul>
+                                            <div class="clearfix"></div>
+                                        </div>
+                                        <div class="x_content">
+                                            <br>
+                                            <div class="row">
+                                                <div class="col-md-5 col-sm-5">
+                                                    <div class="form-group row">
+                                                        <label class="col-form-label col-md-4 col-sm-4 " for="" >Order: <span class="required">*</span></label>
+                                                        <div class="col-md-8 col-sm-8 ">
+                                                            <div id="searchBoxNam"></div>
+                                                        </div>
+                                                      </div>
+                                                </div>
+
+                                                <div class="col-md-5 col-sm-5">
+                                                    <div class="form-group row">
+                                                        <label class="col-form-label col-md-4 col-sm-4 " for="" >Khách Hàng <span class="required">*</span></label>
+                                                        <div class="col-md-8 col-sm-8 ">
+                                                            <div id="searchBoxKH"></div>
+                                                        </div>
+                                                      </div>
+                                                </div>
+
+                                                <div class="col-md-2 col-sm-2">
+                                                    <div class="form-group row">
+                                                        <div class="col-md-6 col-sm-6 ">
+                                                            <button type="submit" name="bsubmit" value="submitSearch" class="btn btn-primary" id="btnSearchId">Execute</button>
+                                                        </div>
+                                                      </div>
+                                                </div>
+                                            </div>
+                                            
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="row">
+                                <div class="col-md-12">
+                                    <div class="x_panel">
+                                        <div class="x_title">
+                                            <h2>Tính Chỉ Theo Đơn Hàng</h2>
+                                            <ul class="nav navbar-right panel_toolbox">
+                                                <li><a class="collapse-link"><i class="fa fa-chevron-up"></i></a> </li>
+                                            </ul>
+                                            <div class="clearfix"></div>
+                                        </div>
+                                        <div class="x_content">
+
+                                            <ul class="nav nav-tabs bar_tabs" id="myTab" role="tablist">
+                                                <li class="nav-item">
+                                                    <a class="nav-link active" id="home-tab" data-toggle="tab" href="#home"
+                                                        role="tab" aria-controls="home" aria-selected="true">Tổng cuộn chỉ theo Order</a>
+                                                </li>
+                                                <li class="nav-item">
+                                                    <a class="nav-link" id="profile-tab" data-toggle="tab" href="#profile"
+                                                        role="tab" aria-controls="profile" aria-selected="false">Chi Tiết Chỉ Theo Mã Hàng</a>
+                                                </li>
+                                                <!-- <li class="nav-item">
+                                                    <a class="nav-link" id="contact-tab" data-toggle="tab" href="#contact"
+                                                        role="tab" aria-controls="contact" aria-selected="false">Danh Sách Mã Hàng Chưa tạo Công Đoạn</a>
+                                                </li> -->
+                                            </ul>
+                                            <div class="tab-content" id="myTabContent">
+                                                <div class="tab-pane fade active show" id="home" role="tabpanel"
+                                                    aria-labelledby="home-tab">
+                                                    <div id="GridTinhChi"></div>
+                                                </div>
+                                                <div class="tab-pane fade" id="profile" role="tabpanel"
+                                                    aria-labelledby="profile-tab">
+                                                    <div id="GridTinhChiCT"></div>
+                                                </div>
+                                                <!-- <div class="tab-pane fade" id="contact" role="tabpanel"
+                                                    aria-labelledby="contact-tab">
+                                                    <div id="GridMHCDNew"></div>
+                                                </div> -->
+                                            </div>
+                                        </div>
+                                        <!-- <div class="x_content" id="xcontentid">
+                                            <div id="GridTinhChi"></div>
+                                           
+                            
+                                        </div> -->
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <!-- /page content -->
+
+                        <!-- footer content -->
+                        <footer>
+                            <div class="pull-right">
+                                Wacoal - Bootstrap Admin Template by <a href="/home">Thai Hoa</a>
+                            </div>
+                            <div class="clearfix"></div>
+                        </footer>
+                        <!-- /footer content -->
+                    </form>
+            </div>
+        </div>
+        <% include ../block/script %>
+        <script src="/javascripts/kho/KhoOrderTinhChiGridViewDevjs.js"></script>
+</body>
+
+</html>

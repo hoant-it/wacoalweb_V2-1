@@ -1,0 +1,124 @@
+.banner{
+    width: 100%;
+}
+.banner img{
+    width: 100%;
+    background-size: cover;
+    background-position: center;
+    border-radius: 8px;
+    max-height: 200px;
+    border: 2px solid whitesmoke;
+}
+.channel-container{
+    display: flex;
+    /* justify-content: space-around; */
+    align-items: center;
+    position: sticky;
+    top:70px;
+    z-index: 1;
+    background: white;
+    padding: 0 20px;
+}
+
+.channel-container .channel-info .wacoal-logo-channel{
+    width: 80px;
+    height: 80px;
+    /* min-width: 80px ;
+    max-width: 80px;
+    min-height: 80px;
+    min-height: 80px; */
+    background-size: cover;
+    background-position: center;
+    border-radius: 50%;
+    padding: 20px 20px;
+}
+
+.channel-container .channel-info p{
+    font-weight: 700;
+    font-size: 30px;
+}
+
+.channel-info {
+    display: flex;
+    /* justify-content: space-around; */
+    align-items: center;
+}
+
+
+.search-bar-channel {
+    margin-left: 1em;
+    display: flex;
+    /* height: 20px; */
+    /* flex-grow: 1; */
+    align-items: center;
+    /* margin: 0 4rem 0 8rem; */
+    /* margin-right: 10px; */
+}
+
+.search-btn-channel {
+    height: 26px;
+    display: flex;
+    /* font-size: 1.5em; */
+    align-items: center;
+    padding: 0 1.25rem;
+    /* border: 1px solid #e7e7e7; */
+    border: none;
+    /* background-color: #f8f8f8; */
+    background: none;
+    border-left: none;
+    border-top-left-radius: 0;
+    border-bottom-left-radius: 0;
+    cursor: pointer;
+}
+
+.search-btn-channel.hide{
+    display: block;
+}
+.search-input-channel{
+   display: none;
+}
+
+.search-input-channel.active{
+    display: block;
+    height: 26px;
+    /* width: 350px; */
+    outline: none;
+    /* font-size: 1.5em; */
+    /* border: 1px solid #e7e7e7; */
+    border: none;
+    border-bottom: 1px solid black;;
+    border-top-right-radius: 0;
+    border-bottom-right-radius: 0;
+    text-decoration: none;
+    
+}
+
+
+
+
+@media(max-width:900px){
+    .banner img{
+        max-height: 100px;
+    }
+    .search-bar-channel .search-input{
+        width: 150px;
+    }
+    .channel-container .channel-info p{
+        font-weight: 500;
+        font-size: 14px;
+    }
+
+    .channel-container .channel-info .wacoal-logo-channel{
+        width: 40px;
+        height: 40px;
+        /* min-width: 80px ;
+        max-width: 80px;
+        min-height: 80px;
+        min-height: 80px; */
+        background-size: cover;
+        background-position: center;
+        border-radius: 50%;
+        padding: 0px 10px;
+    }
+
+}

@@ -1,0 +1,26 @@
+/* .page-title {
+    width: 100%;
+    height: 65px;
+    padding: 10px 0;
+    margin-top: 20px;
+  } */
+  
+  .nav_title {
+    width: 230px;
+    float: left;
+    background: #2A3F54;
+    border-radius: 0;
+    height: 57px;
+    padding: 0px;
+    margin-top: 20px;
+  }
+  
+  /* element.style {
+    min-height: 100vh;
+  } */
+  
+  /* .nav-md .container.body .right_col {
+    padding: 10px 20px 0;
+    margin-left: 230px;
+    min-height: 100vh;
+  } */

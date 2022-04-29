@@ -1,0 +1,194 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <% include ../block/head %>
+        <link rel="stylesheet" href="/css/dataTables.bootstrap4.min.css">
+        <link rel="stylesheet" href="/css/jquery.dataTables.min.css">
+        <link rel="stylesheet" href="/css/admin/userList.css">
+</head>
+
+<body class="nav-md footer_fixed">
+
+    <div class="container body">
+        <div class="main_container">
+            <% include ../block/leftpanelV2 %>
+                <% include ../block/toppanelV2 %>
+                    <!-- <form action="/userListv2" method="POST">     -->
+                    <form role="form" id="frmSaveData">
+                        <!-- page content -->
+                        <div class="right_col " role="main" style="min-height: 100vh">
+                            <div class="page-title">
+                                <div class="title_left">
+                                    <h3> <small><strong></strong></small></h3>
+                                </div>
+                            </div>
+                            <div class="clearfix"></div>
+
+                            <div class="row">
+                                <div class="col-md-12 col-sm-12">
+                                    <div class="x_panel">
+                                        <div class="x_title">
+                                            <h2>User List</h2>
+                                            <ul class="nav navbar-right panel_toolbox">
+                                                <li><a class="collapse-link"><i class="fa fa-chevron-up"></i></a> </li>
+                                            </ul>
+                                            <div class="clearfix"></div>
+                                        </div>
+
+                                        <div class="x_content" id="xcontentid">
+
+                                            <table class="table table-striped table-bordered mydatatable" style="width: 100%;">
+                                                <thead>
+                                                    <tr>
+                                                        <th>Name </th>
+                                                        <th>Full Name</th>
+                                                        <th>Email</th>
+                                                        <th>PositionsCode</th>
+                                                        <th>PositionsName</th>
+                                                        <th>DepartmentCode</th>
+                                                        <th>Role</th>
+                                                    </tr>
+
+                                                </thead>
+                                                <tbody>
+                                                    <% if ( arrUserList) { %>
+                                                        <% for( var i=0 ; i < arrUserList.length ; i++) { %>
+                                                            <tr>
+                                                                <td>
+                                                                    <%=arrUserList[i].UserName %>
+                                                                </td>
+                                                                <td>
+                                                                    <%=arrUserList[i].FullName %>
+                                                                </td>
+                                                                <td>
+                                                                    <%=arrUserList[i].Email %>
+                                                                </td>
+                                                                <td>
+                                                                    <%=arrUserList[i].PositionsCode %>
+                                                                </td>
+                                                                <td>
+                                                                    <%=arrUserList[i].PositionsName %>
+                                                                </td>
+                                                                <td>
+                                                                    <%=arrUserList[i].DepartmentCode %>
+                                                                </td>
+                                                                <td>
+                                                                    <%=arrUserList[i].GroupUserDescription %>
+                                                                </td>
+                                                            </tr>
+                                                            <% } %>
+                                                                <% } else { %>
+                                                                    <tr>
+                                                                        <td> Empty </td>
+                                                                        <td> Empty </td>
+                                                                        <td> Empty </td>
+                                                                        <td> Empty </td>
+                                                                        <td> Empty </td>
+                                                                        <td> Empty </td>
+                                                                    </tr>
+                                                                    <% } %>
+                                                </tbody>
+
+                                            </table>
+
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+
+                            <!-- Modal -->
+                            <div class="modal fade" id="modalAddUpdate" role="dialog">
+                                <div class="modal-dialog">
+
+                                    <!-- Modal content-->
+                                    <div class="modal-content">
+                                        <div class="modal-header">
+                                            <button type="button" class="close" data-dismiss="modal">&times;</button>
+                                            <h4 class="modal-title">Add/Update Employee</h4>
+                                        </div>
+                                        <div class="modal-body">
+
+                                            <div class="form-group">
+                                                <label for="txtUserName">User Name:</label>
+                                                <input type="text" class="form-control" name="txtUserName" id="txtUserName">
+                                                <!-- <input type="hidden" id="hidID" value="0" /> -->
+                                            </div>
+                                            <div class="form-group">
+                                                <label for="txtFullName">Full Name:</label>
+                                                <input type="text" class="form-control" name="txtFullName" id="txtFullName">
+                                            </div>
+                                            <div class="form-group">
+                                                <label for="txtEmail"> Email</label>
+                                                <input type="text" class="form-control" name="txtEmail" id="txtEmail">
+                                            </div>
+                                            <div class="form-group">
+                                 
+                                                <label for="txtPositionsName"> Positions Name:</label>
+                                                <select id="selectionPosition" class="form-control" >
+                                                 <%   if(arrListPositions.length>0) { %>
+                                                     <%   for( var i = 0; i < arrListPositions.length; i++) { %>
+                                                            <option value="<%-arrListPositions[i].PositionsCode%>"><%=arrListPositions[i].PositionsName%></option>
+
+                                                     <%   } %>
+                                                 <%   } %>
+                                                  </select>
+                                                <!-- <input type="text" class="form-control" name="txtPositionsName" id="txtPositionsName"> -->
+                                            </div>
+                                            <div class="form-group">
+                                                <label for="txtDepartmentCode"> Department Code:</label>
+                                                <select id="selectionDeparment" class="form-control" >
+                                                    <%   if(arrListDepartment.length>0) { %>
+                                                        <%   for( var i = 0; i < arrListDepartment.length; i++) { %>
+                                                               <option value="<%-arrListDepartment[i].DepartmentCode%>"><%=arrListDepartment[i].DepartmentName%></option>
+   
+                                                        <%   } %>
+                                                    <%   } %>
+                                                     </select>
+                                            </div>
+                                            <div class="modal-footer">
+                                                <button type="submit" name="submitInsert" value="submitInsert" class="btn btn-primary" id="btnSave">Save</button>
+                                                <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+                                            </div>
+                                            <!-- <div class="checkbox">
+                                            <label><input type="checkbox" id="ckStatus">Active</label>
+                                            </div> -->
+
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                            <!-- modal -->
+                        </div>
+                        <!-- /page content -->
+
+                        <!-- footer content -->
+                        <footer>
+                            <div class="nav_menu">
+                                <nav class="nav navbar-nav">
+                                    <ul class=" navbar-right">
+                                        <li style="padding-right: 15px; float: right; margin-top: 20px;">
+                                            <button type="button" class="btn btn-success" id="btnAddNew">New</button>
+                                            <button type="button" class="btn btn-info" id="btnedit">Edit</button>
+                                            <button type="button" class="btn btn-warning" value="submitRsPass" id="btnRsPassId">Refresh password</button>
+                                            <button type="submit" name="bsubmit" value="submitDelete" class="btn btn-danger" id="btnDeleteId">Delete</button>
+                                            <!-- <button type="submit" name="bsubmit" value="submitSave" class="btn btn-primary" id="btnSaveId">Save</button>
+                                        <button type="button" onclick="cancelUser()" name="bsubmit" value="submitCancel" class="btn btn-secondary" id="btnCancelId">Cancel</button> -->
+                                        </li>
+                                    </ul>
+                                </nav>
+                            </div>
+                        </footer>
+                        <!-- /footer content -->
+        </div>
+    </div>
+    <% include ../block/script %>
+        <script src="/js/popper.min.js"></script>
+        <script src="/js/bootstrap.min.js"></script>
+        <script src="/js/jquery.dataTables.min.js"></script>
+        <script src="/javascripts/admin/userListv2.js"></script>
+        <!-- </form> -->
+        </form>
+</body>
+
+</html>

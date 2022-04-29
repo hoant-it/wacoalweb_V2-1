@@ -1,0 +1,118 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <% include ../block/head %>
+    <link rel="stylesheet" type="text/css" href="/cdn3.devexpress.com/jslib/20.2.5/css/dx.common.css" />
+    <link rel="stylesheet" type="text/css" href="/cdn3.devexpress.com/jslib/20.2.5/css/dx.light.css" />
+    <!-- <link rel="stylesheet" href="/css/kho/KhoOrderTinhChiGridViewDev.css"> -->
+</head>
+
+<body class="nav-md footer_fixed">
+        <div class="container body">
+            <div class="main_container">
+                <% include ../block/leftpanelV2 %>
+                    <% include ../block/toppanelV2 %>
+                    <form  method="POST" id="form1"> 
+                        <!-- page content -->
+                        <div class="right_col " role="main" style="min-height: 100vh">
+                            <div class="">
+                                <div class="page-title">
+                                    <div class="title_left">
+                                        <h3> <small><strong></strong></small></h3>
+
+                                    </div>
+                                </div>
+                            </div>
+                            
+                            <div class="row">
+                                <div class="col-md-12">
+                                    <div class="x_panel">
+                                        <div class="x_title">
+                                            <h2>Công Thúc Tính Chỉ</h2>
+                                            <ul class="nav navbar-right panel_toolbox">
+                                                <li><a class="collapse-link"><i class="fa fa-chevron-up"></i></a> </li>
+                                            </ul>
+                                            <div class="clearfix"></div>
+                                        </div>
+                                        <div class="x_content" id="xcontentid">
+                                            <div id="GridCongThucTnhChi"></div>
+                                           
+                            
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+
+                             <!-- Modal -->
+                             <div class="modal fade" id="modalAddUpdate" role="dialog">
+                                <div class="modal-dialog modal-xl">
+                                    <!-- Modal content-->
+                                    <div class="modal-content">
+                                        <div class="modal-header">
+                                            <!-- <button type="button" class="close" data-dismiss="modal">&times;</button> -->
+                                            <h4 class="modal-title">Cập Nhật Công Thức Tính Chỉ</h4>
+                                        </div>
+                                        <div class="modal-body">
+                                                <div class="form-group row">
+                                                    <label class="col-form-label col-md-3 col-sm-3 " for="" >Loại máy</label>
+                                                    <div class="col-md-9 col-sm-9 ">
+                                                        <div id="searchBoxLoaiMay"></div>
+                                                    </div>
+                                                </div>
+                                                <div class="form-group row">
+                                                    <label class="col-form-label col-md-3 col-sm-3 " for="" >Vị Trí Chỉ</label>
+                                                    <div class="col-md-9 col-sm-9 ">
+                                                        <div id="searchBoxViTriChi"></div>
+                                                    </div>
+                                                </div>
+                                                <div class="form-group row">
+                                                    <label class="col-form-label col-md-3 col-sm-3 " for="txtCongThucTinhChi" >Công Thức Tính Chỉ</label>
+                                                    <div class="col-md-9 col-sm-9 ">
+                                                    <input type="text" class="form-control"  name="txtCongThucTinhChi" id="txtCongThucTinhChi">
+                                                    </div>
+                                                </div>
+                                            
+                                
+                                                <div class="modal-footer">
+                                                    <button type="submit" name="submitInsert" value="submitInsert" class="btn btn-primary" id="btnSave">Save</button>
+                                                    <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+                                                </div>
+                                            <!-- <div class="checkbox">
+                                            <label><input type="checkbox" id="ckStatus">Active</label>
+                                            </div> -->
+
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                            <!-- modal -->
+                        </div>
+                        <!-- /page content -->
+
+                          <!-- footer content -->
+                          <footer>
+                            <div class="nav_menu">
+                                <nav class="nav navbar-nav">
+                                    <ul class=" navbar-right">
+                                        <li style="padding-right: 15px; float: right; margin-top: 20px;">
+                                            <button type="button" class="btn btn-success" id="btnAddNew">New</button>
+                                            <button type="button" class="btn btn-info" id="btnedit">Edit</button>
+                                            <button type="submit" name="bsubmit" value="submitDelete" class="btn btn-danger" id="btnDeleteId">Delete</button>
+                                            <!-- <button type="submit" name="bsubmit" value="submitSave" class="btn btn-primary" id="btnSaveId">Save</button>
+                                        <button type="button" onclick="cancelUser()" name="bsubmit" value="submitCancel" class="btn btn-secondary" id="btnCancelId">Cancel</button> -->
+                                        </li>
+                                    </ul>
+                                </nav>
+                            </div>
+                        </footer>
+                        <!-- /footer content -->
+                    </form>
+                    
+            </div>
+        </div>
+</body>
+<% include ../block/script %>
+<script src="/javascripts/kho/CongThucTinhChijs.js"></script>
+
+</html>

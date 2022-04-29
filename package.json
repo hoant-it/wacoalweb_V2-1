@@ -1,0 +1,47 @@
+{
+  "name": "webmain",
+  "version": "0.0.0",
+  "private": true,
+  "scripts": {
+    "start": "nodemon --inspect ./bin/www --exec babel-node"
+  },
+  "dependencies": {
+    "alert": "^5.0.10",
+    "body-parser": "^1.19.0",
+    "convert-excel-to-json": "^1.7.0",
+    "cookie-parser": "~1.4.4",
+    "crypto-js": "^4.0.0",
+    "debug": "~2.6.9",
+    "del": "^6.0.0",
+    "dotenv": "^10.0.0",
+    "ejs": "~2.6.1",
+    "express": "~4.16.1",
+    "express-fileupload": "^1.2.1",
+    "express-session": "^1.17.1",
+    "ffmpeg": "0.0.4",
+    "filereader": "^0.10.3",
+    "fluent-ffmpeg": "^2.1.2",
+    "http-errors": "~1.6.3",
+    "jquery-validation": "^1.19.3",
+    "jspdf": "^2.5.0",
+    "jspdf-autotable": "^3.5.23",
+    "morgan": "~1.9.1",
+    "mssql": "^6.3.2",
+    "multer": "^1.4.4",
+    "popups": "^1.1.3",
+    "qr-scanner": "^1.3.0",
+    "qrcode": "^1.5.0",
+    "sequelize": "^6.12.0",
+    "socket.io": "^4.4.1",
+    "webpack": "^5.11.0",
+    "xls-to-json-lc": "^0.3.4",
+    "xlsx": "^0.17.3",
+    "xlsx-to-json-lc": "^0.5.0"
+  },
+  "devDependencies": {
+    "babel-cli": "^6.26.0",
+    "babel-preset-env": "^1.7.0",
+    "sequelize-cli": "^6.3.0",
+    "tedious": "^9.2.3"
+  }
+}

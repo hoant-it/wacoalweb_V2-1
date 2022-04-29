@@ -1,0 +1,99 @@
+<!DOCTYPE html>
+<html lang="en">
+<!-- Quy Trinh Cat -->
+<head>
+    <% include ../block/head %>
+</head>
+
+<body class="nav-md footer_fixed">
+    <div class="container body">
+        <div class="main_container">
+            <% include ../block/leftpanelV2 %>
+                <% include ../block/toppanelV2 %>
+                    <!-- page content -->
+                    <div class="right_col " role="main" style="min-height: 100vh">
+                        <div class="">
+                            <div class="page-title">
+                                <div class="title_left">
+                                    <h3> <small><strong></strong></small></h3>
+
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="row">
+                            <div class="col-md-12 col-sm-12">
+                                <div class="x_panel">
+                                    <div class="x_title">
+                                        <h2>Quy Trình Kiểm Phẩm</h2>
+                                        <ul class="nav navbar-right panel_toolbox">
+                                            <li><a class="collapse-link"><i class="fa fa-chevron-up"></i></a> </li>
+                                        </ul>
+                                        <div class="clearfix"></div>
+                                    </div>
+        
+                                    <div class="x_content" id="xcontentid">
+        
+                                        <img id="img_ID" src="/images/KiemPham/QTKPImage.png" width="100%" height="600px" alt="Planets" usemap="#map" >
+                                        <map id="map_ID" name="map">
+                                            <area shape="rect" coords="190,230,310,310" href="/KiemPham/KIEMMAUSENPATSU" alt="KIEMMAUSENPATSU">
+                                            <!-- LAM_HUONG_DAN_KIEM -->
+                                            <area shape="rect" coords="330,230,440,310" href="/KiemPham/LAM_HUONG_DAN_KIEM" alt="LAM_HUONG_DAN_KIEM">
+                                            <!-- GIAI_THICH_BANG_HUONG_DAN_KIEM_TRA -->
+                                            <area shape="rect" coords="470,230,580,310" href="/KiemPham/GIAI_THICH_BANG_HUONG_DAN_KIEM_TRA" alt="GIAI_THICH_BANG_HUONG_DAN_KIEM_TRA">
+                                            <!-- LEADER_KIEM_TRA -->
+                                            <area shape="rect" coords="600,230,720,310" href="/KiemPham/LEADER_KIEM_TRA" alt="LEADER_KIEM_TRA">
+                                            <!-- CONG_NHAN_KIEM_SX_THAT -->
+                                            <area shape="rect" coords="740,230,870,310" href="/KiemPham/CONG_NHAN_KIEM_SX_THAT" alt="CONG_NHAN_KIEM_SX_THAT">
+                                            <!-- GIAOHANG -->
+                                            <area shape="rect" coords="890,230,1000,310" href="/KiemPham/GIAOHANG" alt="GIAOHANG">
+                                            <!-- QD_XLSP_KHONG_PHU_HOP -->
+                                            <area shape="rect" coords="760,330,850,380" href="/KiemPham/QD_XLSP_KHONG_PHU_HOP" alt="QD_XLSP_KHONG_PHU_HOP">
+                                        </map>
+        
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                      
+                    </div>
+                    <!-- /page content -->
+
+                    <!-- footer content -->
+                    <footer>
+                        <div class="pull-right">
+                            Wacoal - Bootstrap Admin Template by <a href="/home">Thai Hoa</a>
+                        </div>
+                        <div class="clearfix"></div>
+                    </footer>
+                    <!-- /footer content -->
+        </div>
+    </div>
+    
+    <% include ../block/script %>
+</body>
+<script type="text/javascript" src="/js/imageMapResizer.min.js"></script>
+<script type="text/javascript">
+
+    $('map').imageMapResize();
+
+</script>
+
+<script src="/javascripts/KiemPham/QTKPjs.js"></script>
+
+<script language="JavaScript">
+    var firefox=document.getElementById&&!document.all;
+    document.onmousemove=mouseMove;
+    function mouseMove(e){
+    var str;
+    // str=screen.width;
+    if (firefox) str="x="+e.clientX+", y="+e.clientY;
+    else str="x="+event.clientX+", y="+event.clientY;
+
+    document.title=str;
+    }
+    </script>
+
+
+
+</html>
