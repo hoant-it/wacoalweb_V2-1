@@ -1,6 +1,14 @@
 node_modules
 .env
 public/excel
-public/video
 public/pdf
+public/images
+
+
+
+
+
+
+
+
 
