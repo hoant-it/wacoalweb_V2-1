@@ -9,6 +9,7 @@ var _donVi
 var sSearch='';
 var _idKho='0'
 var titleheader=document.getElementById("titleHeader")
+let _stausXuat='';
 
 
 
@@ -54,6 +55,7 @@ const GetKeHangName = () => {
 }
 
 const KeHangGridLoad  = () => {
+    // console.log(_stausXuat)
     var url = "wacoal_KHONL_Web_Load_V1/";
     // console.log(" url " + url + oderNo+khachHang);
     var listTinhChi = DevExpress.data.AspNet.createStore({
@@ -211,72 +213,76 @@ const KeHangGridLoad  = () => {
       
            
         ],
-        // onToolbarPreparing: function(e){
-        //     e.toolbarOptions.items.unshift(
-        //     //     {
-        //     //     location:"alter",
-        //     //     template:function(){
-        //     //         return $('<div/>')
-        //     //         .addClass("informer")
-        //     //             .append(
-        //     //              `
-        //     //              <form action="" method="POST" enctype="multipart/form-data" id="frmUpload">
-        //     //              <input type="file" name="filename" id="filename" />
-        //     //              </from>
-        //     //              `
-        //     //             );
-        //     //     }
+        onToolbarPreparing: function(e){
+            e.toolbarOptions.items.unshift(
+            //     {
+            //     location:"alter",
+            //     template:function(){
+            //         return $('<div/>')
+            //         .addClass("informer")
+            //             .append(
+            //              `
+            //              <form action="" method="POST" enctype="multipart/form-data" id="frmUpload">
+            //              <input type="file" name="filename" id="filename" />
+            //              </from>
+            //              `
+            //             );
+            //     }
 
-        //     // },
-        //     // {
-        //     //     location:"alter",
-        //     //     widget:"dxButton",
-        //     //     options:{
-        //     //         icon:"upload",
-        //     //         text:"",
-        //     //         onInitialized: function (e) {
-        //     //             e.element.attr("id", "btnUpload");
-        //     //         },
-        //     //         onClick: function (){
-        //     //             // console.log("clicker")
-        //     //            upload();
-        //     //         }
-        //     //     }
-        //     // },
+            // },
+            // {
+            //     location:"alter",
+            //     widget:"dxButton",
+            //     options:{
+            //         icon:"upload",
+            //         text:"",
+            //         onInitialized: function (e) {
+            //             e.element.attr("id", "btnUpload");
+            //         },
+            //         onClick: function (){
+            //             // console.log("clicker")
+            //            upload();
+            //         }
+            //     }
+            // },
           
-        //     //      {
-        //     //     location:"alter",
-        //     //     widget:"dxButton",
-        //     //     options:{
-        //     //         icon:"add",
-        //     //         text:"",
-        //     //         onInitialized: function (e) {
-        //     //             e.element.attr("id", "btnAdd");
-        //     //         },
-        //     //         onClick: function (){
-        //     //             // console.log("clicker")
-        //     //             resetForm(_keHangId)
-        //     //         }
-        //     //     }
-        //     // },
-        //     // {
-        //     //     location:"alter",
-        //     //     widget:"dxButton",
-        //     //     options:{
-        //     //         icon:"edit",
-        //     //         text:"",
-        //     //         onInitialized: function (e) {
-        //     //             e.element.attr("id", "btnEdit");
-        //     //         },
-        //     //         onClick: function (){
-        //     //             // console.log("clicker")
-        //     //             EditForm()
-        //     //         }
-        //     //     }
-        //     // },
+            //      {
+            //     location:"alter",
+            //     widget:"dxButton",
+            //     options:{
+            //         icon:"add",
+            //         text:"",
+            //         onInitialized: function (e) {
+            //             e.element.attr("id", "btnAdd");
+            //         },
+            //         onClick: function (){
+            //             // console.log("clicker")
+            //             resetForm(_keHangId)
+            //         }
+            //     }
+            // },
+            {
+                location:"alter",
+                widget:"dxButton",
+                options:{
+                    icon:"export",
+                    text:"Xuất",
+                    onInitialized: function (e) {
+                        e.element.attr("id", "btnEdit");
+                    },
+                    onClick: function (){
+                        if(_stausXuat==='xuatBP'){
+                            EditForm();
+                        }
+                        if(_stausXuat==='xuatTP'){
+                            SaveData();
+                        }
+                    }
+                }
+            },
          
-        //     )
-        // },
+            )
+        },
         onFocusedRowChanged: function(e) {
             getDataItem(e.row);
         }
@@ -407,6 +413,7 @@ function getDataItem(row) {
 
 
 const resetForm = () => {
+    _stausXuat=''
     $('#modalAddUpdate').modal('show');
         $('#btnSave').val("submitInsert");
         $('#modalAddUpdate').on('shown.bs.modal', function () {
@@ -489,24 +496,10 @@ const EditForm = () => {
    
 }
 
-const ShowGrid = () => {
-    KeHangGridLoad()
-}
+
 
 const SaveData = () => {
-    
-    let data = {
-        btnSave:$('#btnSave').val(),
-        keHang:$("#searchBoxKeHang").dxSelectBox('instance').option('value'),
-        txtNL: $('#txtNL').val(),
-        txtOrder: $('#txtOrder').val(),
-        txtColor:$('#txtColor').val(),
-        txtQty: $('#txtQty').val(),
-        txtUnit: $('#txtUnit').val(),
-        txtQtyTon:$('#txtQtyTon').val(),
-        txtQtyXuat:$('#txtQtyXuat').val(),
-        khoId:_idKho
-    };
+    let data ={} 
     if(data.btnSave==="submitEdit"){
         if(parseInt(data.txtQtyXuat)>parseInt(data.txtQtyTon)){
             DevExpress.ui.notify({
@@ -515,6 +508,33 @@ const SaveData = () => {
             },"error",5000)
             return
         }
+    }
+    if(_stausXuat==='xuatTP'){
+        data = {
+            btnSave:'submitEdit',
+            keHang:_keHangId,
+            txtNL: _NL,
+            txtOrder: _oderNo,
+            txtColor:_color,
+            txtQty: 0,
+            txtUnit: _donVi,
+            txtQtyTon:_slTon,
+            txtQtyXuat:_slTon,
+            khoId:_idKho
+        };
+    } else{
+        data = {
+            btnSave:$('#btnSave').val(),
+            keHang:$("#searchBoxKeHang").dxSelectBox('instance').option('value'),
+            txtNL: $('#txtNL').val(),
+            txtOrder: $('#txtOrder').val(),
+            txtColor:$('#txtColor').val(),
+            txtQty: $('#txtQty').val(),
+            txtUnit: $('#txtUnit').val(),
+            txtQtyTon:$('#txtQtyTon').val(),
+            txtQtyXuat:$('#txtQtyXuat').val(),
+            khoId:_idKho
+        };
     }
 
     $.ajax({
@@ -525,19 +545,20 @@ const SaveData = () => {
         success: (res) => {
             if(res.statusErr){
     
+               
+                // DevExpress.ui.notify({
+                //     message: res.errMes,
+                //     width: 450
+                // },"success",5000), //error,success,warning
+                alert(res.errMes);
                 $('#modalAddUpdate').modal('hide');
-                DevExpress.ui.notify({
-                    message: res.errMes,
-                    width: 450
-                },"success",5000), //error,success,warning
-                // alert(res.errMes);
-                KeHangGridLoad(data.keHang);
+                location.reload()
             } else{
-                DevExpress.ui.notify({
-                    message: res.errMes,
-                    width: 450
-                },"error",5000)
-                // alert(res.errMes);
+                // DevExpress.ui.notify({
+                //     message: res.errMes,
+                //     width: 450
+                // },"error",5000)
+                alert(res.errMes);
             }
         }
 
@@ -597,18 +618,24 @@ $(function(){
 
     $('.addButton').dxButton({
         icon:'add',
-        text: 'Thêm Nguyên Liệu',
+        text: 'Nhập',
         onClick: resetForm,
       });
       $('.editButton').dxButton({
-        icon:'edit',
-        text: 'Lấy Nguyên Liệu',
-        onClick: EditForm,
+        icon:'selectall',
+        text: 'Xuất Toàn Phần',
+        onClick: function(){
+            _stausXuat="xuatTP"
+            KeHangGridLoad()
+        }
       });
       $('.deleteButton').dxButton({
-        icon:'increaseindent',
-        text: 'Xem tồn',
-        onClick: ShowGrid,
+        icon:'unselectall',
+        text: 'Xuất Bán Phần',
+        onClick: function(){
+            _stausXuat="xuatBP"
+            KeHangGridLoad()
+        }
       });
 
     loadTooltip("tooltipAdd","btnAdd");
